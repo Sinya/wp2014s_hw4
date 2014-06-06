@@ -203,21 +203,27 @@ FB.getLoginStatus(function(response) {
 
 
 
-function getMyAlbum(response) {
-	console.log(response)
-
-	FB.api(
-    "/{album-id}",
-    function (response) {
-      if (response && !response.error) {
-        /* handle the result */
-		console.log(response)
-        for (var i = 0; i < response.data.length; i++){
-			console.log(response.data[i].name);
-			}}
-    }
-);
-}
+window.getMyAlbum = function() {
+FB.api({
+     method: 'fql.multiquery',
+     queries: {
+        query1: 'select aid,name,link,photo_count,cover_object_id from album where owner = me()',
+        query2: 'SELECT pid,src FROM photo WHERE object_id  IN (SELECT cover_object_id FROM #query1)'
+     }
+    },
+    function(response) {
+        var parsed = new Array();
+        $(response[0].fql_result_set).each(function(index,value){
+                var result = {
+            aid : value.aid,
+            title : value.name,
+            cover : response[1].fql_result_set[index].src,
+                            link :value.link
+        };
+                parsed.push(result);
+        })
+    getdata(parsed);
+});
 
 
 
