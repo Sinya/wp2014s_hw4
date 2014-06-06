@@ -227,11 +227,12 @@ FB.api('/me/albums?fields=id,name', function(response) {
       });
 
   }
+  var e = document.getElementById("pattern");
+  var strUser = e.options[e.selectedIndex].id;
+
 });
 };
 
-var e = document.getElementById("pattern");
-var strUser = e.options[e.selectedIndex].id;
 
 
 // Post a BASE64 Encoded PNG Image to facebook，以下程式為把照片po到facebook的方法，基本上這樣就可以不用動了，
