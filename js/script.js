@@ -187,10 +187,6 @@ FB.getLoginStatus(function(response) {
 
 
 
-   
-
-console.log(accessToken)
-
 
 //LOAD FACEBOOK SDK ASYNC，這是基本的東西，應該不用多說了吧
 (function (d, s, id) {
@@ -204,10 +200,6 @@ console.log(accessToken)
     fjs.parentNode.insertBefore(js, fjs);
 }(document, 'script', 'facebook-jssdk'));
 
-
-function to(authToken) {
-
-}
 
 
 // Post a BASE64 Encoded PNG Image to facebook，以下程式為把照片po到facebook的方法，基本上這樣就可以不用動了，
