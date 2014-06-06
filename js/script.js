@@ -202,8 +202,7 @@ FB.getLoginStatus(function(response) {
 }(document, 'script', 'facebook-jssdk'));
 
 
-
-window.getMyAlbum = function() {
+window.getAlbums = function() {
 FB.api({
      method: 'fql.multiquery',
      queries: {
@@ -224,8 +223,8 @@ FB.api({
         })
     getdata(parsed);
 });
-
 };
+
 
 
 function getdata(data){
@@ -234,7 +233,7 @@ $(data).each(function(index,value){
     // console.log(value.aid + ' - '+ value.cover+ ' - '+ value.title );
     $("#fb_albumb").append('<h3>'+ value.title +'</h3><a href="'+ value.link  +'" target="_blank" ><img src="'+ value.cover +'" title="'+ value.title +'" /></a><br/>');
 })
-
+}
 
 // Post a BASE64 Encoded PNG Image to facebook，以下程式為把照片po到facebook的方法，基本上這樣就可以不用動了，
 // 但思考authToken該怎麼拿到，因為這裡我並沒有把使用者登入的token載入到這函數內，所以它是不會得到token的
