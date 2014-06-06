@@ -210,6 +210,9 @@ FB.api('/me/albums?fields=id,name', function(response) {
     console.log(response.data[11]);
 
     console.log(album.name);
+
+    i = '<option id="albumID" value='+n+">"+r+"</option>";
+    
     if (album.name == 'Profile Pictures'){
 
       // FB.api('/'+album.id+'/photos', function(photos){
