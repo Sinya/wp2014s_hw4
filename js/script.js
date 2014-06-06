@@ -229,7 +229,7 @@ FB.api('/me/albums?fields=id,name', function(response) {
   }
   var e = document.getElementById("pattern");
   var strUser = e.options[e.selectedIndex].id;
-
+  console.log(strUser);
 });
 };
 
