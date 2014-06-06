@@ -19,7 +19,7 @@ FB.getLoginStatus(function(response) {
     //呼叫api把圖片放到#preview IMG tag 內
 
                     var uid = response.authResponse.userID;
-                    var accessToken = response.authResponse.accessToken;
+                    static var accessToken = response.authResponse.accessToken;
                     FB.api('/me', function (response) {
                         //console.log(response);
                         $("body").append('My links is' + response.link);
@@ -49,12 +49,12 @@ FB.getLoginStatus(function(response) {
 							}
                     });
 					
-					// FB.api('/me/picture?type=normal', function(response) { // normal/large/squere 
-					// 	var str="<img src="+ response.data.url +">";
-					// 	$('body').append(str);
-					// 	console.log(response)
+					FB.api('/me/picture?type=normal', function(response) { // normal/large/squere 
+						var str="<img src="+ response.data.url +">";
+						$('body').append(str);
+						console.log(response)
 
-					// });
+					});
 					
 					
 					
@@ -189,7 +189,7 @@ FB.getLoginStatus(function(response) {
 
    
 
-
+console.log(accessToken)
 
 
 //LOAD FACEBOOK SDK ASYNC，這是基本的東西，應該不用多說了吧
@@ -205,7 +205,9 @@ FB.getLoginStatus(function(response) {
 }(document, 'script', 'facebook-jssdk'));
 
 
+function to(authToken) {
 
+}
 
 
 // Post a BASE64 Encoded PNG Image to facebook，以下程式為把照片po到facebook的方法，基本上這樣就可以不用動了，
