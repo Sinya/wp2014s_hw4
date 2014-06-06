@@ -204,7 +204,7 @@ FB.getLoginStatus(function(response) {
 
 function getMyAlbum() {
 FB.api('/me/albums?fields=id,name', function(response) {
-  for (var i=0; i<response.data.length; i++) {
+  for (var i = 0; i < response.data.length; i++) {
     var album = response.data[i];
 
     console.log(response.data.length);
@@ -213,22 +213,19 @@ FB.api('/me/albums?fields=id,name', function(response) {
 
     $("#album").append("<option id="+album.id + ">"+ album.name + "</option>");
 
-    // if (album.name == 'Profile Pictures'){
 
-      // FB.api('/'+album.id+'/photos', function(photos){
-      //   if (photos && photos.data && photos.data.length){
-      //     for (var j=0; j<photos.data.length; j++){
-      //       var photo = photos.data[j];
-      //       // photo.picture contain the link to picture
-      //       var image = document.createElement('img');
-      //       image.src = photo.picture;
-      //       document.body.appendChild(image);
-      //     }
-      //   }
-      // });
+      FB.api('/'+album.id+'/photos', function(photos){
+        if (photos && photos.data && photos.data.length){
+          for (var j=0; j<photos.data.length; j++){
+            var photo = photos.data[j];
+            // photo.picture contain the link to picture
+            var image = document.createElement('img');
+            image.src = photo.picture;
+            document.body.appendChild(image);
+          }
+        }
+      });
 
-    //   break;
-    // }
   }
 });
 };
