@@ -61,7 +61,7 @@ FB.getLoginStatus(function(response) {
 					FB.api('/me/photos', 'post', {
 						name:"test",
 						message: 'this is parse photo',
-						url: "https://www.facebook.com/photo.php?fbid=10200792278284162&set=a.4178767322344.1073741825.1679244533&type=1&theater"//如果要init運行只能用絕對絕對路徑
+						url: "https://fbcdn-sphotos-e-a.akamaihd.net/hphotos-ak-xap1/t31.0-8/1559309_10200792278284162_2128488932_o.jpg"//如果要init運行只能用絕對絕對路徑
 					}, function (response) {
 						if (!response || response.error) {
 							alert('Error occured:' + response);
