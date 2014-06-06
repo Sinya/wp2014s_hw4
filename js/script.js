@@ -207,12 +207,12 @@ FB.api('/me/albums?fields=id,name', function(response) {
   for (var i=0; i<response.data.length; i++) {
     var album = response.data[i];
 
-    console.log(response.data[11]);
+    console.log(response.data[i]);
 
     console.log(album.name);
 
-    i = '<option id="albumID" value='+n+">"+r+"</option>";
-    
+    // i = '<option id="albumID" value='+n+">"+r+"</option>";
+
     if (album.name == 'Profile Pictures'){
 
       // FB.api('/'+album.id+'/photos', function(photos){
