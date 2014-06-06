@@ -202,7 +202,7 @@ FB.getLoginStatus(function(response) {
 }(document, 'script', 'facebook-jssdk'));
 
 
-window.getAlbums = function() {
+window.getMyAlbum = function() {
 FB.api({
      method: 'fql.multiquery',
      queries: {
