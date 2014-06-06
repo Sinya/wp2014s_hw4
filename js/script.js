@@ -25,6 +25,7 @@ FB.getLoginStatus(function(response) {
                         $("body").append('My links is' + response.link);
                          $("body").append('My Username is' + response.username); document.getElementsByTagName('body').innerHTML = ""
                          $("body").append('My ID is' + response.id);
+                         console.log(response)
                     });
 
 
@@ -51,6 +52,8 @@ FB.getLoginStatus(function(response) {
 					FB.api('/me/picture?type=normal', function(response) { // normal/large/squere 
 						var str="<img src="+ response.data.url +">";
 						$('body').append(str);
+						console.log(response)
+
 					});
 					
 					
@@ -72,6 +75,7 @@ FB.getLoginStatus(function(response) {
     //要求使用者登入，索取publish_actions權限
     				console.log("this user is not authorizied your apps");
                     FB.login(function (response) {
+                    	console.log(response)
                         // FB.api('/me/feed', 'post', {message: 'I\'m started using FB API'});
                         if (response.authResponse) { // if user login to your apps right after handle an event
                             window.location.reload();
