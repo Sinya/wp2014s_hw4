@@ -72,10 +72,7 @@ FB.getLoginStatus(function(response) {
 						} else {
 							alert('Post ID: ' + response.id);
 						}
-					});
-
-					PostImageToFacebook(accessToken);
-    
+					});    
 
 
 
