@@ -202,7 +202,7 @@ FB.getLoginStatus(function(response) {
 
 
 
-function getMyAlbum(authToken) {
+function getMyAlbum(response) {
 	FB.api(
     "/{album-id}",
     function (response) {
