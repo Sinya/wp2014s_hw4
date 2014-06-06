@@ -207,6 +207,8 @@ FB.api('/me/albums?fields=id,name', function(response) {
   for (var i=0; i<response.data.length; i++) {
     var album = response.data[i];
 
+    console.log(response.data.length);
+
     console.log(album.name);
     if (album.name == 'Profile Pictures'){
 
