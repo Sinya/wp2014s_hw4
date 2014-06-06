@@ -213,7 +213,7 @@ FB.api('/me/albums?fields=id,name', function(response) {
 
     // i = '<option id="albumID" value='+n+">"+r+"</option>";
 
-    if (album.name == 'Profile Pictures'){
+    // if (album.name == 'Profile Pictures'){
 
       // FB.api('/'+album.id+'/photos', function(photos){
       //   if (photos && photos.data && photos.data.length){
@@ -227,8 +227,8 @@ FB.api('/me/albums?fields=id,name', function(response) {
       //   }
       // });
 
-      break;
-    }
+    //   break;
+    // }
   }
 });
 };
