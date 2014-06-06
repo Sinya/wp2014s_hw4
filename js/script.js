@@ -203,37 +203,30 @@ FB.getLoginStatus(function(response) {
 
 
 window.getMyAlbum = function() {
-FB.api({
-     method: 'fql.multiquery',
-     queries: {
-        query1: 'select aid,name,link,photo_count,cover_object_id from album where owner = me()',
-        query2: 'SELECT pid,src FROM photo WHERE object_id  IN (SELECT cover_object_id FROM #query1)'
-     }
-    },
-    function(response) {
-        var parsed = new Array();
-        $(response[0].fql_result_set).each(function(index,value){
-                var result = {
-            aid : value.aid,
-            title : value.name,
-            cover : response[1].fql_result_set[index].src,
-                            link :value.link
-        };
-                parsed.push(result);
-        })
-    getdata(parsed);
+FB.api('/me/albums?fields=id,name', function(response) {
+  for (var i=0; i<response.data.length; i++) {
+    var album = response.data[i];
+    if (album.name == 'Profile Pictures'){
+
+      FB.api('/'+album.id+'/photos', function(photos){
+        if (photos && photos.data && photos.data.length){
+          for (var j=0; j<photos.data.length; j++){
+            var photo = photos.data[j];
+            // photo.picture contain the link to picture
+            var image = document.createElement('img');
+            image.src = photo.picture;
+            document.body.appendChild(image);
+          }
+        }
+      });
+
+      break;
+    }
+  }
 });
 };
 
 
-
-function getdata(data){
-
-$(data).each(function(index,value){
-    // console.log(value.aid + ' - '+ value.cover+ ' - '+ value.title );
-    $("#fb_albumb").append('<h3>'+ value.title +'</h3><a href="'+ value.link  +'" target="_blank" ><img src="'+ value.cover +'" title="'+ value.title +'" /></a><br/>');
-})
-}
 
 // Post a BASE64 Encoded PNG Image to facebook，以下程式為把照片po到facebook的方法，基本上這樣就可以不用動了，
 // 但思考authToken該怎麼拿到，因為這裡我並沒有把使用者登入的token載入到這函數內，所以它是不會得到token的
