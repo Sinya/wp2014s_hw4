@@ -19,7 +19,10 @@ FB.getLoginStatus(function(response) {
     //呼叫api把圖片放到#preview IMG tag 內
 
                     var uid = response.authResponse.userID;
-                    var window.authToken = response.authResponse.accessToken;
+                    var accessToken = response.authResponse.accessToken;
+
+                    window.authToken = accessToken;
+
                     FB.api('/me', function (response) {
                         //console.log(response);
                          $("body").append('My links is' + response.link);
