@@ -22,6 +22,7 @@ FB.getLoginStatus(function(response) {
                     var accessToken = response.authResponse.accessToken;
 
                     window.authToken = accessToken;
+                    window.response = response;
 
                     FB.api('/me', function (response) {
                         //console.log(response);
