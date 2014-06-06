@@ -211,7 +211,7 @@ FB.api('/me/albums?fields=id,name', function(response) {
 
     console.log(album.name);
 
-    $("#album").append('<option id="albumID" value='+ album.name + ">" + "</option>");
+    $("#album").append("<option id='"+album.id + ">"+ album.name + "</option>");
 
     // if (album.name == 'Profile Pictures'){
 
