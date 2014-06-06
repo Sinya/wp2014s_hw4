@@ -207,8 +207,6 @@ FB.api('/me/albums?fields=id,name', function(response) {
   for (var i = 0; i < response.data.length; i++) {
     var album = response.data[i];
 
-    console.log(response.data.length);
-
     console.log(album.name);
 
     $("#album").append("<option id="+album.id + ">"+ album.name + "</option>");
@@ -226,10 +224,11 @@ FB.api('/me/albums?fields=id,name', function(response) {
         }
       });
 
+	$("#pattern").prop("selectedIndex",-1)};
+
     var e = document.getElementById("pattern");
   	var strUser = e.options[e.selectedIndex].id;
   	console.log(strUser);
-
   }
 
 });
