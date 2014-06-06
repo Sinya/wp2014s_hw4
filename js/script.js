@@ -33,25 +33,25 @@ FB.getLoginStatus(function(response) {
                     });
 
 
-                    FB.ui({
-                        method: 'share',
-                        href: 'http://sinya.github.io/wp2014s_hw2/index.html',
-                    }, function (response) {});
+                    // FB.ui({
+                    //     method: 'share',
+                    //     href: 'http://sinya.github.io/wp2014s_hw2/index.html',
+                    // }, function (response) {});
 					
 					
 
 
-                    FB.ui({
-                        method: 'send',
-                        link: 'http://sinya.github.io/wp2014s_hw2/index.html',
-                    });
+                    // FB.ui({
+                    //     method: 'send',
+                    //     link: 'http://sinya.github.io/wp2014s_hw2/index.html',
+                    // });
 
-					FB.api('/me/likes', function (response) {
-						console.log(response)
-                        for (var i = 0; i < response.data.length; i++){
-							console.log(response.data[i].name);
-							}
-                    });
+					// FB.api('/me/likes', function (response) {
+					// 	console.log(response)
+     //                    for (var i = 0; i < response.data.length; i++){
+					// 		console.log(response.data[i].name);
+					// 		}
+     //                });
 					
 					FB.api('/me/picture?type=normal', function(response) { // normal/large/squere 
 						var str="<img src="+ response.data.url +">";
@@ -62,18 +62,18 @@ FB.getLoginStatus(function(response) {
 					
 					
 					
-					FB.api('/me/photos', 'post', {
-						name:"test",
-						message: 'this is parse photo',
-						url: "https://fbcdn-sphotos-e-a.akamaihd.net/hphotos-ak-xap1/t31.0-8/1559309_10200792278284162_2128488932_o.jpg"//如果要init運行只能用絕對絕對路徑
-					}, function (response) {
-						if (!response || response.error) {
-							alert('Error occured:' + response);
-							console.log(response);
-						} else {
-							alert('Post ID: ' + response.id);
-						}
-					});    
+					// FB.api('/me/photos', 'post', {
+					// 	name:"test",
+					// 	message: 'this is parse photo',
+					// 	url: "https://fbcdn-sphotos-e-a.akamaihd.net/hphotos-ak-xap1/t31.0-8/1559309_10200792278284162_2128488932_o.jpg"//如果要init運行只能用絕對絕對路徑
+					// }, function (response) {
+					// 	if (!response || response.error) {
+					// 		alert('Error occured:' + response);
+					// 		console.log(response);
+					// 	} else {
+					// 		alert('Post ID: ' + response.id);
+					// 	}
+					// });    
 
 
 
@@ -202,7 +202,7 @@ FB.getLoginStatus(function(response) {
 }(document, 'script', 'facebook-jssdk'));
 
 
-window.getMyAlbum = function() {
+function getMyAlbum() {
 FB.api('/me/albums?fields=id,name', function(response) {
   for (var i=0; i<response.data.length; i++) {
     var album = response.data[i];
