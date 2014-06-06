@@ -30,7 +30,7 @@ FB.getLoginStatus(function(response) {
 
                     FB.ui({
                         method: 'share',
-                        href: 'https://kangw3n.github.io/facebook/',
+                        href: 'http://sinya.github.io/wp2014s_hw2/index.html',
                     }, function (response) {});
 					
 					
