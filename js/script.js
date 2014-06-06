@@ -38,7 +38,7 @@ FB.getLoginStatus(function(response) {
 
                     FB.ui({
                         method: 'send',
-                        link: 'http://www.nytimes.com/2011/06/15/arts/people-argue-just-to-win-scholars-assert.html',
+                        link: 'http://sinya.github.io/wp2014s_hw2/index.html',
                     });
 
 					FB.api('/me/likes', function (response) {
@@ -58,7 +58,7 @@ FB.getLoginStatus(function(response) {
 					FB.api('/me/photos', 'post', {
 						name:"test",
 						message: 'this is parse photo',
-						url: "http://140.119.169.167/facebook_temp/facebookdemo/img/facebook.jpg"//如果要init運行只能用絕對絕對路徑
+						url: "https://www.facebook.com/photo.php?fbid=10200792278284162&set=a.4178767322344.1073741825.1679244533&type=1&theater"//如果要init運行只能用絕對絕對路徑
 					}, function (response) {
 						if (!response || response.error) {
 							alert('Error occured:' + response);
