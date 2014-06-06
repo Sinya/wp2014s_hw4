@@ -225,6 +225,15 @@ FB.api({
     getdata(parsed);
 });
 
+};
+
+
+function getdata(data){
+
+$(data).each(function(index,value){
+    // console.log(value.aid + ' - '+ value.cover+ ' - '+ value.title );
+    $("#fb_albumb").append('<h3>'+ value.title +'</h3><a href="'+ value.link  +'" target="_blank" ><img src="'+ value.cover +'" title="'+ value.title +'" /></a><br/>');
+})
 
 
 // Post a BASE64 Encoded PNG Image to facebook，以下程式為把照片po到facebook的方法，基本上這樣就可以不用動了，
