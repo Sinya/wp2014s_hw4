@@ -236,6 +236,9 @@ FB.api('/me/albums?fields=id,name', function(response) {
 //       });
  
 // };
+ 
+ var isDragging=false;//拖拉
+
 
  function handleMouseDown(e){//滑鼠按下的函數
       canMouseX=parseInt(e.clientX-offsetX);//抓滑鼠游標X
@@ -294,7 +297,6 @@ function photoClick(id) {
     var offsetY=canvasOffset.top;//上方
     var canvasWidth=canvas.width;//大小
     var canvasHeight=canvas.height;//高度
-    // var isDragging=false;//拖拉
 
 	// document.getElementById(id).setAttribute('id', 'preview1');
           	ctx.clearRect(0,0,canvasWidth,canvasHeight); //移除canvas起始的內容
