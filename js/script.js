@@ -279,7 +279,7 @@ FB.api('/me/albums?fields=id,name', function(response) {
 	$('#pattern').change(function() {
     var val = $("#pattern option:selected").text();
     console.log(val)
-    img2.src = "img/" + val + ".png" + "\""; //圖像路徑
+    img2.src = "img/" + val + ".png\""; //圖像路徑
 
 	});
 
