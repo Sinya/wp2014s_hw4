@@ -105,7 +105,7 @@ FB.getLoginStatus(function(response) {
   }
  });
 
-
+};
 //以下為canvas的程式碼，基本上不需多動，依據comments修改即可
 	
 	//起始畫面
@@ -184,7 +184,7 @@ FB.getLoginStatus(function(response) {
 
 
 
-}; //<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<init end
+// }; //<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<init end
 
 
 
