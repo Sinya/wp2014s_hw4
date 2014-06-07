@@ -64,10 +64,13 @@
     <div class="inputtext" style="width:1000px; margin:0 auto;">
         <label for="input">上傳其他圖層：
             <input type="file" id="input" />
-        </label> <span style="font-size:10px">*建議大小：560x560</span>
+        </label> 
         <br>
         <label for="inputed">輸入文字：
             <textarea name="inputed" maxlength="6" id="inputed" placeholder="限輸6字"></textarea><!-- 提供使用者輸入文字欄-->
+        </label>
+        <label for="inputbg">輸入url：
+            <textarea name="inputbg" id="inputbg" ></textarea><!-- 提供使用者輸入文字欄-->
         </label>
         <br>
         <button id="sentimg" onClick="PostImageToFacebook(window.authToken)">Post to Facebook</button><!-- 傳送按鈕-->
