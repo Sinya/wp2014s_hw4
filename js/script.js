@@ -1,9 +1,5 @@
 // JavaScript Document
 
-/*
-這檔案協助你編寫JS，請注意每個code block的使用，若你對自己的javascript很有信心，或是你認為我寫的方式有bug，歡迎自行修改編排
-*/
-
 window.fbAsyncInit = function () {//facebook init
     
 //輸入基本的Facebook init的狀態，與Facebook 連接，包括APP ID的設定
@@ -48,10 +44,10 @@ FB.getLoginStatus(function(response) {
 
 					// FB.api('/me/likes', function (response) {
 					// 	console.log(response)
-     //                    for (var i = 0; i < response.data.length; i++){
+                    //     for (var i = 0; i < response.data.length; i++){
 					// 		console.log(response.data[i].name);
 					// 		}
-     //                });
+                    //    });
 					
 					FB.api('/me/picture?type=normal', function(response) { // normal/large/squere 
 						var str="<img src="+ response.data.url +">";
@@ -59,8 +55,7 @@ FB.getLoginStatus(function(response) {
 						console.log(response)
 
 					});
-					
-					
+		
 					
 					// FB.api('/me/photos', 'post', {
 					// 	name:"test",
@@ -326,8 +321,6 @@ function photoClick(id) {
     // $("#canvas").mouseup(function(e){handleMouseUp(e);});
     // $("#canvas").mouseout(function(e){handleMouseOut(e);});
 
-
-
 };
 
 
@@ -340,51 +333,51 @@ function photoClick(id) {
 
 
 $('#album').change(function() {
-    var val = $("#album option:selected").text();
-    // console.log(val)
-    // alert(val);
+	    var val = $("#album option:selected").text();
+	    // console.log(val)
+	    // alert(val);
 
-$("#photo").empty();
+	$("#photo").empty();
 
-FB.api(
-    '/me/albums?fields=id,name',
-    function (response) {
-      if (response && !response.error) {
-			for (var i = 0; i < response.data.length; i++) {
+	FB.api(
+	    '/me/albums?fields=id,name',
+	    function (response) {
+	      if (response && !response.error) {
+				for (var i = 0; i < response.data.length; i++) {
+					    var album = response.data[i];
+
+					    console.log("=====")
+				   	  	console.log(album.name)
+				   	  	console.log(val)
+					    console.log("=====")
+
+
 				    var album = response.data[i];
-
-				    console.log("=====")
-			   	  	console.log(album.name)
-			   	  	console.log(val)
-				    console.log("=====")
-
-
-			    var album = response.data[i];
-			   	  if (album.name == val) {
-			   	  	console.log(album.name);
-					// function getMyPhoto(album) {
-			   	  	console.log("hihi");
-							     FB.api('/'+album.id+'/photos', function(photos){
-							       if (photos && photos.data && photos.data.length){
-							         for (var j=0; j<photos.data.length; j++){
-							           var photo = photos.data[j];
-							           // photo.picture contain the link to picture
-							           var image = document.createElement('img');
-							           image.src = photo.picture;
-							           // document.body.appendChild(image);
-							           // $("#photo").append("<img id="+photo.id + " src=" + image.src  + " onClick=" + "alert(" + "\"HelloWorld!\"" + ")" + ">");
-							$("#photo").append("<img id="+photo.id + " src=" + image.src  + " crossorigin=" + "\"Anonymous\"" + " class="+ "\"img\""  + " onClick=" + "photoClick(" + photo.id + ")" + ">");
-							console.log(image.src);
-							         }
-					       }
-					     });
-					// };
-					}
-			}
-      /* handle the result */
-      }
-    }
-);
+				   	  if (album.name == val) {
+				   	  	console.log(album.name);
+						// function getMyPhoto(album) {
+				   	  	console.log("hihi");
+								     FB.api('/'+album.id+'/photos', function(photos){
+								       if (photos && photos.data && photos.data.length){
+								         for (var j=0; j<photos.data.length; j++){
+								           var photo = photos.data[j];
+								           // photo.picture contain the link to picture
+								           var image = document.createElement('img');
+								           image.src = photo.picture;
+								           // document.body.appendChild(image);
+								           // $("#photo").append("<img id="+photo.id + " src=" + image.src  + " onClick=" + "alert(" + "\"HelloWorld!\"" + ")" + ">");
+								$("#photo").append("<img id="+photo.id + " src=" + image.src  + " crossorigin=" + "\"Anonymous\"" + " class="+ "\"img\""  + " onClick=" + "photoClick(" + photo.id + ")" + ">");
+								console.log(image.src);
+								         }
+						       }
+						     });
+						// };
+						}
+				}
+	      /* handle the result */
+	      }
+	    }
+	);
 
 
 });
