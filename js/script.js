@@ -342,10 +342,18 @@ function photoClick(id) {
 //     alert(val);
 // });
 
+
+$('#pattern').change(function() {
+    var val = $("#album option:selected").text();
+    console.log(val)
+    alert(val);
+});
+
+
 $('#album').change(function() {
     var val = $("#album option:selected").text();
     // console.log(val)
-    alert(val);
+    // alert(val);
 
 $("#photo").empty();
 
