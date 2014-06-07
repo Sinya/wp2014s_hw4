@@ -236,7 +236,7 @@ FB.api('/me/albums?fields=id,name', function(response) {
 
 
 function getMyPhoto(album) {
-$("#photo").remove();
+$("#photo img").remove();
       FB.api('/'+album.id+'/photos', function(photos){
         if (photos && photos.data && photos.data.length){
           for (var j=0; j<photos.data.length; j++){
@@ -254,7 +254,7 @@ $("#photo").remove();
  
 };
 
-function getMyPhoto(album) {
+function photoClick() {
 
 
 };
