@@ -220,7 +220,7 @@ FB.api('/me/albums?fields=id,name', function(response) {
             var image = document.createElement('img');
             image.src = photo.picture;
             // document.body.appendChild(image);
-            $("#photo").append("<img id="+photo.id + " src=" + image.src  + ">");
+            $("#photo").append("<img id="+photo.id + " src=" + image.src  + " onClick='alert(" + "Hello World! " + ")"  ">");
 			console.log(image.src)
           }
         }
