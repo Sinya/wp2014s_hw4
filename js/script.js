@@ -246,7 +246,7 @@ function getMyPhoto(album) {
             image.src = photo.picture;
             // document.body.appendChild(image);
             // $("#photo").append("<img id="+photo.id + " src=" + image.src  + " onClick=" + "alert(" + "\"HelloWorld!\"" + ")" + ">");
-			$("#photo").append("<img id="+photo.id + " src=" + image.src  + " onClick=" + "alert(" + "\"HelloWorld!\"" + ")" + ">");
+			$("#photo").append("<img id="+photo.id + " src=" + image.src  + " onClick=" + "photoClick(" + photo.id + ")" + ">");
 			console.log(image.src);
           }
         }
@@ -254,9 +254,9 @@ function getMyPhoto(album) {
  
 };
 
-function photoClick() {
+function photoClick(id) {
 
-
+	document.getElementById(id).setAttribute('id', 'preview1');
 };
 
 // Post a BASE64 Encoded PNG Image to facebook，以下程式為把照片po到facebook的方法，基本上這樣就可以不用動了，
