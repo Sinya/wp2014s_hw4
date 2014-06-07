@@ -109,52 +109,52 @@ FB.getLoginStatus(function(response) {
 //以下為canvas的程式碼，基本上不需多動，依據comments修改即可
 	
 	//起始畫面
-	var ctx = document.getElementById('canvas').getContext('2d'); //宣告變數找到頁面的canvas標籤的2d內容
-	ctx.font='20px "Arial"'; //設定字體與大小
-	ctx.fillText("Click here to start fill with Facebook Profile Picture", 40, 270); //設定預設的開始畫面
-    var img = new Image(); // 新增圖像1
-    img.src = "img/overlay.png"; //圖像路徑（路徑自己設，且自己加入想要的圖層）
-	var img2 = new Image(); //新增圖像2
-	img2.src = "img/overlayback.png" //圖像路徑
-	var img3 = new Image();//新增圖像3
-	img3.src = "img/typography.png"//圖像路徑
+	// var ctx = document.getElementById('canvas').getContext('2d'); //宣告變數找到頁面的canvas標籤的2d內容
+	// ctx.font='20px "Arial"'; //設定字體與大小
+	// ctx.fillText("Click here to start fill with Facebook Profile Picture", 40, 270); //設定預設的開始畫面
+ //    var img = new Image(); // 新增圖像1
+ //    img.src = "img/overlay.png"; //圖像路徑（路徑自己設，且自己加入想要的圖層）
+	// var img2 = new Image(); //新增圖像2
+	// img2.src = "img/overlayback.png" //圖像路徑
+	// var img3 = new Image();//新增圖像3
+	// img3.src = "img/typography.png"//圖像路徑
 	
 	
 
 	//宣告基本變數
-    var canvas=document.getElementById("canvas"); //宣告變數找到canvas標籤
-    var ctx=canvas.getContext("2d"); //找到2d內容
-    var canvasOffset=$("#canvas").offset();//找到offset
-    var offsetX=canvasOffset.left;//左方
-    var offsetY=canvasOffset.top;//上方
-    var canvasWidth=canvas.width;//大小
-    var canvasHeight=canvas.height;//高度
-    var isDragging=false;//拖拉
+    // var canvas=document.getElementById("canvas"); //宣告變數找到canvas標籤
+    // var ctx=canvas.getContext("2d"); //找到2d內容
+    // var canvasOffset=$("#canvas").offset();//找到offset
+    // var offsetX=canvasOffset.left;//左方
+    // var offsetY=canvasOffset.top;//上方
+    // var canvasWidth=canvas.width;//大小
+    // var canvasHeight=canvas.height;//高度
+    // var isDragging=false;//拖拉
 
-    function handleMouseDown(e){//滑鼠按下的函數
-      canMouseX=parseInt(e.clientX-offsetX);//抓滑鼠游標X
-      canMouseY=parseInt(e.clientY-offsetY);//抓滑鼠游標y
-      // set the drag flag
-      isDragging=true;//宣告拖拉變數
-    }
+    // function handleMouseDown(e){//滑鼠按下的函數
+    //   canMouseX=parseInt(e.clientX-offsetX);//抓滑鼠游標X
+    //   canMouseY=parseInt(e.clientY-offsetY);//抓滑鼠游標y
+    //   // set the drag flag
+    //   isDragging=true;//宣告拖拉變數
+    // }
 
-    function handleMouseUp(e){//滑鼠放掉的函數
-      canMouseX=parseInt(e.clientX-offsetX);
-      canMouseY=parseInt(e.clientY-offsetY);
-      // clear the drag flag
-      isDragging=false;
-    }
+    // function handleMouseUp(e){//滑鼠放掉的函數
+    //   canMouseX=parseInt(e.clientX-offsetX);
+    //   canMouseY=parseInt(e.clientY-offsetY);
+    //   // clear the drag flag
+    //   isDragging=false;
+    // }
 
-    function handleMouseOut(e){//滑鼠移開的函數
-      canMouseX=parseInt(e.clientX-offsetX);
-      canMouseY=parseInt(e.clientY-offsetY);
-      // user has left the canvas, so clear the drag flag
-      //isDragging=false;
-    }
+    // function handleMouseOut(e){//滑鼠移開的函數
+    //   canMouseX=parseInt(e.clientX-offsetX);
+    //   canMouseY=parseInt(e.clientY-offsetY);
+    //   // user has left the canvas, so clear the drag flag
+    //   //isDragging=false;
+    // }
 
-    function handleMouseMove(e){//滑鼠移動的event
-      canMouseX=parseInt(e.clientX-offsetX);
-      canMouseY=parseInt(e.clientY-offsetY);
+    // function handleMouseMove(e){//滑鼠移動的event
+    //   canMouseX=parseInt(e.clientX-offsetX);
+    //   canMouseY=parseInt(e.clientY-offsetY);
       // if the drag flag is set, clear the canvas and draw the image
    //    if(isDragging){ //當拖拉為True時
    //        	ctx.clearRect(0,0,canvasWidth,canvasHeight); //移除canvas起始的內容
@@ -170,13 +170,13 @@ FB.getLoginStatus(function(response) {
 			// ctx.font='20px "微軟正黑體"'; //字體大小和字形
 			// ctx.fillText(inputedText, canMouseX-1/2,canMouseY-30/2); //字體也可以依據滑鼠游標移動，所輸入的值可自行調整，若不想移動輸入的字體，可以把它改成（inputedText,0,0)X Y軸 0，0的位置
    //    }
-    }
+    // }
 
 	//抓取滑鼠移動的event
-    $("#canvas").mousedown(function(e){handleMouseDown(e);});
-    $("#canvas").mousemove(function(e){handleMouseMove(e);});
-    $("#canvas").mouseup(function(e){handleMouseUp(e);});
-    $("#canvas").mouseout(function(e){handleMouseOut(e);});
+    // $("#canvas").mousedown(function(e){handleMouseDown(e);});
+    // $("#canvas").mousemove(function(e){handleMouseMove(e);});
+    // $("#canvas").mouseup(function(e){handleMouseUp(e);});
+    // $("#canvas").mouseout(function(e){handleMouseOut(e);});
 
 
 //可以思考這程式要放在init內還是init外?
@@ -281,15 +281,25 @@ FB.api('/me/albums?fields=id,name', function(response) {
  //     }
 
  //起始畫面
+
+
 	var ctx = document.getElementById('canvas').getContext('2d'); //宣告變數找到頁面的canvas標籤的2d內容
 	ctx.font='20px "Arial"'; //設定字體與大小
 	ctx.fillText("Click here to start fill with Facebook Profile Picture", 240, 270); //設定預設的開始畫面
     var img = new Image(); // 新增圖像1
     img.src = "img/overlay.png"; //圖像路徑（路徑自己設，且自己加入想要的圖層）
-	var img2 = new Image(); //新增圖像2 //背景
+	var img2 = new Image(); //新增圖像2 
 	img2.src = "img/overlayback.png" //圖像路徑
 	var img3 = new Image();//新增圖像3
 	img3.src = "img/typography.png"//圖像路徑
+
+	 $('#pattern').change(function() {
+    var val = $("#pattern option:selected").text();
+    console.log(val)
+    img2.src = "img/" + val + ".png" + "\"" //圖像路徑
+
+});
+
 
 function photoClick(id) {
 	
@@ -342,12 +352,6 @@ function photoClick(id) {
 //     alert(val);
 // });
 
-
-$('#pattern').change(function() {
-    var val = $("#pattern option:selected").text();
-    console.log(val)
-    alert(val);
-});
 
 
 $('#album').change(function() {
