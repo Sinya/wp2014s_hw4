@@ -285,7 +285,7 @@ function photoClick(id) {
 			// canvas.height = selectIMG.height;
 
 			canvas.width = 540;//設定canvas的大小需符合selectIMG的大小
-			canvas.height = 700;
+			canvas.height = 600;
 			console.log(selectIMG.height)
 			console.log(selectIMG.width)
 
