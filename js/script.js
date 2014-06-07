@@ -312,7 +312,7 @@ $('#album').change(function() {
     // console.log(val)
     alert(val);
 
-// $("#photo").remove(".img");
+$("#photo").empty();
 
 FB.api(
     '/me/albums?fields=id,name',
