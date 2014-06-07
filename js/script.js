@@ -300,7 +300,7 @@ function photoClick(id) {
 
 };
 
- 	function handleMouseDown(e){//滑鼠按下的函數
+ function handleMouseDown(e){//滑鼠按下的函數
       canMouseX=parseInt(e.clientX-offsetX);//抓滑鼠游標X
       canMouseY=parseInt(e.clientY-offsetY);//抓滑鼠游標y
       // set the drag flag
@@ -324,7 +324,7 @@ function photoClick(id) {
     function handleMouseMove(e){//滑鼠移動的event
       canMouseX=parseInt(e.clientX-offsetX);
       canMouseY=parseInt(e.clientY-offsetY);
-    }
+     }
 
 	//抓取滑鼠移動的event
     $("#canvas").mousedown(function(e){handleMouseDown(e);});
