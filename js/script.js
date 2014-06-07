@@ -285,7 +285,7 @@ function photoClick(id) {
 			// canvas.height = selectIMG.height;
 
 			canvas.width = 540;//設定canvas的大小需符合selectIMG的大小
-			canvas.height = 600;
+			canvas.height = 500;
 			console.log(selectIMG.height)
 			console.log(selectIMG.width)
 
@@ -299,6 +299,40 @@ function photoClick(id) {
 
 
 };
+
+ 	function handleMouseDown(e){//滑鼠按下的函數
+      canMouseX=parseInt(e.clientX-offsetX);//抓滑鼠游標X
+      canMouseY=parseInt(e.clientY-offsetY);//抓滑鼠游標y
+      // set the drag flag
+      isDragging=true;//宣告拖拉變數
+    }
+
+    function handleMouseUp(e){//滑鼠放掉的函數
+      canMouseX=parseInt(e.clientX-offsetX);
+      canMouseY=parseInt(e.clientY-offsetY);
+      // clear the drag flag
+      isDragging=false;
+    }
+
+    function handleMouseOut(e){//滑鼠移開的函數
+      canMouseX=parseInt(e.clientX-offsetX);
+      canMouseY=parseInt(e.clientY-offsetY);
+      // user has left the canvas, so clear the drag flag
+      //isDragging=false;
+    }
+
+    function handleMouseMove(e){//滑鼠移動的event
+      canMouseX=parseInt(e.clientX-offsetX);
+      canMouseY=parseInt(e.clientY-offsetY);
+    }
+
+	//抓取滑鼠移動的event
+    $("#canvas").mousedown(function(e){handleMouseDown(e);});
+    $("#canvas").mousemove(function(e){handleMouseMove(e);});
+    $("#canvas").mouseup(function(e){handleMouseUp(e);});
+    $("#canvas").mouseout(function(e){handleMouseOut(e);});
+
+
 
 // Post a BASE64 Encoded PNG Image to facebook，以下程式為把照片po到facebook的方法，基本上這樣就可以不用動了，
 // 但思考authToken該怎麼拿到，因為這裡我並沒有把使用者登入的token載入到這函數內，所以它是不會得到token的
