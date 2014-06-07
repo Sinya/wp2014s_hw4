@@ -256,6 +256,15 @@ function getMyPhoto(album) {
 
 function photoClick(id) {
 
+	var canvas=document.getElementById("canvas"); //宣告變數找到canvas標籤
+    var ctx=canvas.getContext("2d"); //找到2d內容
+    var canvasOffset=$("#canvas").offset();//找到offset
+    var offsetX=canvasOffset.left;//左方
+    var offsetY=canvasOffset.top;//上方
+    var canvasWidth=canvas.width;//大小
+    var canvasHeight=canvas.height;//高度
+    var isDragging=false;//拖拉
+
 	document.getElementById(id).setAttribute('id', 'preview1');
           	ctx.clearRect(0,0,canvasWidth,canvasHeight); //移除canvas起始的內容
 			var profileIMG = document.getElementById("preview1");//抓html裡預載入的照片
