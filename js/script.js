@@ -279,8 +279,6 @@ FB.api('/me/albums?fields=id,name', function(response) {
       canMouseY=parseInt(e.clientY-offsetY);//抓滑鼠游標y
       // set the drag flag
       isDragging=true;//宣告拖拉變數
-      ctx.drawImage(selectIMG,canMouseX-128/2,canMouseY-120/2); //劃入img3，並根據你的滑鼠游標移動，你可以自行更換想要移動的圖層，數值會因XY軸向有所不同
-
     }
 
     function handleMouseUp(e){//滑鼠放掉的函數
@@ -300,6 +298,7 @@ FB.api('/me/albums?fields=id,name', function(response) {
     function handleMouseMove(e){//滑鼠移動的event
       canMouseX=parseInt(e.clientX-offsetX);
       canMouseY=parseInt(e.clientY-offsetY);
+      ctx.drawImage(selectIMG,canMouseX-128/2,canMouseY-120/2); //劃入img3，並根據你的滑鼠游標移動，你可以自行更換想要移動的圖層，數值會因XY軸向有所不同
      }
 
 
