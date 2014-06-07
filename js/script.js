@@ -284,7 +284,7 @@ function photoClick(id) {
 			// canvas.width = profileIMG.width;//設定canvas的大小需符合profileimg的大小
 			// canvas.height = profileIMG.height;
 
-			canvas.width = profileIMG.width*3;//設定canvas的大小需符合profileimg的大小
+			canvas.width = 1000;//設定canvas的大小需符合profileimg的大小
 			canvas.height = profileIMG.height*3;
 			console.log(profileIMG.height)
 			console.log(profileIMG.width)
