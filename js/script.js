@@ -312,7 +312,7 @@ $('#album').change(function() {
     // console.log(val)
     alert(val);
 
-$("#photo img").remove();
+$("#photo").remove();
 
 FB.api(
     '/me/albums?fields=id,name',
@@ -341,7 +341,7 @@ FB.api(
 							           image.src = photo.picture;
 							           // document.body.appendChild(image);
 							           // $("#photo").append("<img id="+photo.id + " src=" + image.src  + " onClick=" + "alert(" + "\"HelloWorld!\"" + ")" + ">");
-							$("#photo").append("<img id="+photo.id + " src=" + image.src  + " crossorigin=" + "\"anonymousdrawImage\"" + " onClick=" + "photoClick(" + photo.id + ")" + ">");
+							$("#photo").append("<img id="+photo.id + " src=" + image.src  + " crossorigin=" + "\"Anonymous\"" + " class="+ "\"img\""  + " onClick=" + "photoClick(" + photo.id + ")" + ">");
 							console.log(image.src);
 							         }
 					       }
