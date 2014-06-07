@@ -317,6 +317,8 @@ FB.api(
     function (response) {
       if (response && !response.error) {
 for (var i = 0; i < response.data.length; i++) {
+	    console.log("Lala")
+
     var album = response.data[i];
    	  if (album.name == val) {
 function getMyPhoto() {
