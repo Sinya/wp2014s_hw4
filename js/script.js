@@ -262,6 +262,7 @@ FB.api('/me/albums?fields=id,name', function(response) {
 	var img3 = new Image();//新增圖像3
 	img3.src = "img/typography.png"//圖像路徑
 
+
 	$('#pattern').change(function() {
     var val = $("#pattern option:selected").text();
     console.log(val)
@@ -269,7 +270,6 @@ FB.api('/me/albums?fields=id,name', function(response) {
 	ctx.drawImage(img2,0,0); //劃入img2
 
 	});
-
 
 
 	$( "#canvas" ).mouseover(function() {
@@ -304,7 +304,7 @@ FB.api('/me/albums?fields=id,name', function(response) {
 			  if (selectIMG != undefined)
 			  	    ctx.clearRect(0,0,canvasWidth,canvasHeight); //移除canvas起始的內容
 	  				ctx.drawImage(img2,0,0); //劃入img2
-		      		ctx.drawImage(selectIMG,canMouseX+128/20,canMouseY-120/20); //劃入img3，並根據你的滑鼠游標移動，你可以自行更換想要移動的圖層，數值會因XY軸向有所不同
+		      		ctx.drawImage(selectIMG,canMouseX-128/10,canMouseY-120/20); //劃入img3，並根據你的滑鼠游標移動，你可以自行更換想要移動的圖層，數值會因XY軸向有所不同
 	     }
      }
 
