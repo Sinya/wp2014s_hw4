@@ -214,23 +214,6 @@ FB.api('/me/albums?fields=id,name', function(response) {
 
     $("#album").append("<option id="+album.id + ">"+ album.name + "</option>");
 
-
-   //    FB.api('/'+album.id+'/photos', function(photos){
-   //      if (photos && photos.data && photos.data.length){
-   //        for (var j=0; j<photos.data.length; j++){
-   //          var photo = photos.data[j];
-   //          // photo.picture contain the link to picture
-   //          var image = document.createElement('img');
-   //          image.src = photo.picture;
-   //          // document.body.appendChild(image);
-   //          $("#photo").append("<img id="+photo.id + " src=" + image.src  + " onClick=" + "alert(" + "\"HelloWorld!\"" + ")" + ">");
-			// console.log(image.src);
-   //        }
-   //      }
-   //    });
- 
-  // 	console.log(strUser);
-
 }});
 };
 
@@ -254,31 +237,31 @@ FB.api('/me/albums?fields=id,name', function(response) {
  
 // };
 
- // function handleMouseDown(e){//滑鼠按下的函數
- //      canMouseX=parseInt(e.clientX-offsetX);//抓滑鼠游標X
- //      canMouseY=parseInt(e.clientY-offsetY);//抓滑鼠游標y
- //      // set the drag flag
- //      isDragging=true;//宣告拖拉變數
- //    }
+ function handleMouseDown(e){//滑鼠按下的函數
+      canMouseX=parseInt(e.clientX-offsetX);//抓滑鼠游標X
+      canMouseY=parseInt(e.clientY-offsetY);//抓滑鼠游標y
+      // set the drag flag
+      isDragging=true;//宣告拖拉變數
+    }
 
- //    function handleMouseUp(e){//滑鼠放掉的函數
- //      canMouseX=parseInt(e.clientX-offsetX);
- //      canMouseY=parseInt(e.clientY-offsetY);
- //      // clear the drag flag
- //      isDragging=false;
- //    }
+    function handleMouseUp(e){//滑鼠放掉的函數
+      canMouseX=parseInt(e.clientX-offsetX);
+      canMouseY=parseInt(e.clientY-offsetY);
+      // clear the drag flag
+      isDragging=false;
+    }
 
- //    function handleMouseOut(e){//滑鼠移開的函數
- //      canMouseX=parseInt(e.clientX-offsetX);
- //      canMouseY=parseInt(e.clientY-offsetY);
- //      // user has left the canvas, so clear the drag flag
- //      //isDragging=false;
- //    }
+    function handleMouseOut(e){//滑鼠移開的函數
+      canMouseX=parseInt(e.clientX-offsetX);
+      canMouseY=parseInt(e.clientY-offsetY);
+      // user has left the canvas, so clear the drag flag
+      //isDragging=false;
+    }
 
- //    function handleMouseMove(e){//滑鼠移動的event
- //      canMouseX=parseInt(e.clientX-offsetX);
- //      canMouseY=parseInt(e.clientY-offsetY);
- //     }
+    function handleMouseMove(e){//滑鼠移動的event
+      canMouseX=parseInt(e.clientX-offsetX);
+      canMouseY=parseInt(e.clientY-offsetY);
+     }
 
  //起始畫面
 
@@ -298,7 +281,7 @@ FB.api('/me/albums?fields=id,name', function(response) {
     console.log(val)
     img2.src = "img/" + val + ".png" + "\"" //圖像路徑
 
-});
+	});
 
 
 function photoClick(id) {
