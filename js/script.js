@@ -301,11 +301,11 @@ function photoClick(id) {
 };
 
 
-// $('#album').change(function() {
-//     var val = $("#album option:selected").text();
-//     console.log(#album option)
-//     alert(val);
-// });
+$('#album').change(function() {
+    var val = $("#album option:selected").text();
+    console.log(#album option)
+    alert(val);
+});
 
 // $('#album').change(function() {
 //     var val = $("#album option:selected").text();
