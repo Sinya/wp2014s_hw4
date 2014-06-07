@@ -301,47 +301,47 @@ function photoClick(id) {
 };
 
 
+$('#album').change(function() {
+    var val = $("#album option:selected").text();
+    console.log(val)
+    alert(val);
+});
+
 // $('#album').change(function() {
 //     var val = $("#album option:selected").text();
 //     console.log(#album option)
 //     alert(val);
-// });
 
-$('#album').change(function() {
-    var val = $("#album option:selected").text();
-    console.log(#album option)
-    alert(val);
-
-FB.api(
-    '/me/albums?fields=id,name',
-    function (response) {
-      if (response && !response.error) {
-for (var i = 0; i < response.data.length; i++) {
-    var album = response.data[i];
-   	  if (album.name == val) {
-function getMyPhoto() {
-// $("#photo img").remove();
-     FB.api('/'+album.id+'/photos', function(photos){
-       if (photos && photos.data && photos.data.length){
-         for (var j=0; j<photos.data.length; j++){
-           var photo = photos.data[j];
-           // photo.picture contain the link to picture
-           var image = document.createElement('img');
-           image.src = photo.picture;
-           // document.body.appendChild(image);
-           // $("#photo").append("<img id="+photo.id + " src=" + image.src  + " onClick=" + "alert(" + "\"HelloWorld!\"" + ")" + ">");
-$("#photo").append("<img id="+photo.id + " src=" + image.src  + " crossorigin=" + "\"anonymousdrawImage\"" + " onClick=" + "photoClick(" + photo.id + ")" + ">");
-console.log(image.src);
-         }
-       }
-     });
-};
-}
-}
-      /* handle the result */
-      }
-    }
-);
+// FB.api(
+//     '/me/albums?fields=id,name',
+//     function (response) {
+//       if (response && !response.error) {
+// for (var i = 0; i < response.data.length; i++) {
+//     var album = response.data[i];
+//    	  if (album.name == val) {
+// function getMyPhoto() {
+// // $("#photo img").remove();
+//      FB.api('/'+album.id+'/photos', function(photos){
+//        if (photos && photos.data && photos.data.length){
+//          for (var j=0; j<photos.data.length; j++){
+//            var photo = photos.data[j];
+//            // photo.picture contain the link to picture
+//            var image = document.createElement('img');
+//            image.src = photo.picture;
+//            // document.body.appendChild(image);
+//            // $("#photo").append("<img id="+photo.id + " src=" + image.src  + " onClick=" + "alert(" + "\"HelloWorld!\"" + ")" + ">");
+// $("#photo").append("<img id="+photo.id + " src=" + image.src  + " crossorigin=" + "\"anonymousdrawImage\"" + " onClick=" + "photoClick(" + photo.id + ")" + ">");
+// console.log(image.src);
+//          }
+//        }
+//      });
+// };
+// }
+// }
+//       /* handle the result */
+//       }
+//     }
+// );
 
 
 
