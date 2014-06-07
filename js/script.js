@@ -208,6 +208,7 @@ FB.api('/me/albums?fields=id,name', function(response) {
     var album = response.data[i];
     window.album = album;
 
+    console.log(album);
 
     console.log(album.name);
 
