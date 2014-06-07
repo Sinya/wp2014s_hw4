@@ -222,7 +222,7 @@ FB.api('/me/albums?fields=id,name', function(response) {
             $("#photo").append("<img id="+photo.id + "src=" + image.src  + ">");
 
             // document.body.appendChild(image);
-          }
+          // }
         }
       });
 
