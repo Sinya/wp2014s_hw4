@@ -224,11 +224,6 @@ FB.api('/me/albums?fields=id,name', function(response) {
         }
       });
 
-	$("#pattern").prop("selectedIndex",-1)};
-
-    var e = document.getElementById("pattern");
-  	var strUser = e.options[e.selectedIndex].id;
-  	console.log(strUser);
   }
 
 });
