@@ -309,7 +309,7 @@ function photoClick(id) {
 
 $('#album').change(function() {
     var val = $("#album option:selected").text();
-    console.log(val)
+    // console.log(val)
     alert(val);
 
 FB.api(
@@ -317,7 +317,11 @@ FB.api(
     function (response) {
       if (response && !response.error) {
 for (var i = 0; i < response.data.length; i++) {
-	    console.log("Lala")
+	    console.log("=====")
+   	  	console.log(album.name)
+   	  	console.log(val)
+	    console.log("=====")
+
 
     var album = response.data[i];
    	  if (album.name == val) {
