@@ -246,7 +246,7 @@ function getMyPhoto(album) {
             image.src = photo.picture;
             // document.body.appendChild(image);
             // $("#photo").append("<img id="+photo.id + " src=" + image.src  + " onClick=" + "alert(" + "\"HelloWorld!\"" + ")" + ">");
-			$("#photo").append("<img id="+photo.id + " src=" + image.src  + " crossorigin=" + "\"anonymousdrawImage\"" + " onClick=" + "photoClick(" + photo.id + ")" + ">");
+			$("#photo").append("<img id="+photo.id + " src=" + image.src  + " crossorigin=" + "\"Anonymous\"" + " onClick=" + "photoClick(" + photo.id + ")" + ">");
 			console.log(image.src);
           }
         }
@@ -280,7 +280,7 @@ function photoClick(id) {
 	// document.getElementById(id).setAttribute('id', 'preview1');
           	ctx.clearRect(0,0,canvasWidth,canvasHeight); //移除canvas起始的內容
 			var selectIMG = document.getElementById(id);//抓html裡預載入的照片
-			// selectIMG.crossOrigin = "Anonymous"; // 這務必要做，為了讓Facebook的照片能夠crossdomain傳入到你的頁面，CORS Policy請參考https://developer.mozilla.org/en-US/docs/Web/HTML/CORS_enabled_image 
+			selectIMG.crossOrigin = "Anonymous"; // 這務必要做，為了讓Facebook的照片能夠crossdomain傳入到你的頁面，CORS Policy請參考https://developer.mozilla.org/en-US/docs/Web/HTML/CORS_enabled_image 
 			// canvas.width = selectIMG.width;//設定canvas的大小需符合selectIMG的大小
 			// canvas.height = selectIMG.height;
 
