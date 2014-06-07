@@ -236,7 +236,7 @@ FB.api('/me/albums?fields=id,name', function(response) {
 
 
 function getMyPhoto(album) {
-
+$("#photo").remove();
       FB.api('/'+album.id+'/photos', function(photos){
         if (photos && photos.data && photos.data.length){
           for (var j=0; j<photos.data.length; j++){
@@ -245,12 +245,18 @@ function getMyPhoto(album) {
             var image = document.createElement('img');
             image.src = photo.picture;
             // document.body.appendChild(image);
-            $("#photo").append("<img id="+photo.id + " src=" + image.src  + " onClick=" + "alert(" + "\"HelloWorld!\"" + ")" + ">");
+            // $("#photo").append("<img id="+photo.id + " src=" + image.src  + " onClick=" + "alert(" + "\"HelloWorld!\"" + ")" + ">");
+			$("#photo").append("<img id="+photo.id + " src=" + image.src  + " onClick=" + "alert(" + "\"HelloWorld!\"" + ")" + ">");
 			console.log(image.src);
           }
         }
       });
  
+};
+
+function getMyPhoto(album) {
+
+
 };
 
 // Post a BASE64 Encoded PNG Image to facebook，以下程式為把照片po到facebook的方法，基本上這樣就可以不用動了，
