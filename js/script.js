@@ -206,7 +206,7 @@ function getMyAlbum(response) {
 FB.api('/me/albums?fields=id,name', function(response) {
   for (var i = 0; i < response.data.length; i++) {
     var album = response.data[i];
-    window.album = album;
+    // window.album = album;
 
     console.log(album);
 
@@ -317,6 +317,8 @@ FB.api(
     function (response) {
       if (response && !response.error) {
 for (var i = 0; i < response.data.length; i++) {
+	    var album = response.data[i];
+
 	    console.log("=====")
    	  	console.log(album.name)
    	  	console.log(val)
