@@ -217,18 +217,18 @@ FB.api('/me/albums?fields=id,name', function(response) {
           for (var j=0; j<photos.data.length; j++){
             var photo = photos.data[j];
             // photo.picture contain the link to picture
-            var image = document.createElement('img');
-            image.src = photo.picture;
-            document.body.appendChild(image);
+            // var image = document.createElement('img');
+            // image.src = photo.picture;
+            $("#photo").append("<img id="+photo.id + "src=" + image.src  + ">");
+
+            // document.body.appendChild(image);
           }
         }
       });
 
-  //   var e = document.getElementById("pattern");
-  // 	var strUser = e.options[e.selectedIndex].id;
+ 
   // 	console.log(strUser);
 
-  // }
 
 });
 };
@@ -282,7 +282,7 @@ function PostImageToFacebook(authToken) {
 function dataURItoBlob(dataURI) {
     var byteString = atob(dataURI.split(',')[1]);
     var ab = new ArrayBuffer(byteString.length);
-    var ia = new Uint8Array(ab);
+    var ia = new Uint8Array(ab); // The Uint8Array type represents an array of 8-bit unsigned integers.
     for (var i = 0; i < byteString.length; i++) {
         ia[i] = byteString.charCodeAt(i);
     }
