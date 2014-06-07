@@ -301,7 +301,7 @@ function photoClick(id) {
 };
 
 $('#album').change(function() {
-    var val = $("#myOptions option:selected").text();
+    var val = $("#album option:selected").text();
     alert(val);
 });
 
