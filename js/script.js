@@ -317,11 +317,11 @@ function photoClick(id) {
 
 
 
-	//抓取滑鼠移動的event
-    // $("#canvas").mousedown(function(e){handleMouseDown(e);});
-    // $("#canvas").mousemove(function(e){handleMouseMove(e);});
-    // $("#canvas").mouseup(function(e){handleMouseUp(e);});
-    // $("#canvas").mouseout(function(e){handleMouseOut(e);});
+	// 抓取滑鼠移動的event
+    $("#canvas").mousedown(function(e){handleMouseDown(e);});
+    $("#canvas").mousemove(function(e){handleMouseMove(e);});
+    $("#canvas").mouseup(function(e){handleMouseUp(e);});
+    $("#canvas").mouseout(function(e){handleMouseOut(e);});
 
 };
 
