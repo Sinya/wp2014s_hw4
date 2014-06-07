@@ -202,7 +202,7 @@ FB.getLoginStatus(function(response) {
 }(document, 'script', 'facebook-jssdk'));
 
 
-function getMyAlbum() {
+function getMyAlbum(response) {
 FB.api('/me/albums?fields=id,name', function(response) {
   for (var i = 0; i < response.data.length; i++) {
     var album = response.data[i];
