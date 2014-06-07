@@ -217,19 +217,18 @@ FB.api('/me/albums?fields=id,name', function(response) {
           for (var j=0; j<photos.data.length; j++){
             var photo = photos.data[j];
             // photo.picture contain the link to picture
-            // var image = document.createElement('img');
-            // image.src = photo.picture;
-            $("#photo").append("<img id="+photo.id + "src=" + image.src  + ">");
-
-            // document.body.appendChild(image);
-
+            var image = document.createElement('img');
+            image.src = photo.picture;
+            document.body.appendChild(image);
           }
         }
       });
 
+ 
   // 	console.log(strUser);
 
-}
+
+});
 };
 
 
