@@ -300,7 +300,10 @@ function photoClick(id) {
 
 };
 
-
+$('#album').change(function() {
+    var val = $("#myOptions option:selected").text();
+    alert(val);
+});
 
 // Post a BASE64 Encoded PNG Image to facebook，以下程式為把照片po到facebook的方法，基本上這樣就可以不用動了，
 // 但思考authToken該怎麼拿到，因為這裡我並沒有把使用者登入的token載入到這函數內，所以它是不會得到token的
