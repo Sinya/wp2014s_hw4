@@ -415,7 +415,7 @@ $('#album').change(function() {
 
 function getMyUrl() {
 	var inputedText = $('#inputbg').val();//抓取頁面inputed ID的內容
-	var img_src = inputedText;
+	img2.src = inputedText;
 	if (selectIMG != undefined) {
 	  	    ctx.clearRect(0,0,canvasWidth,canvasHeight); //移除canvas起始的內容
 			ctx.drawImage(img2,0,0); //劃入img2
