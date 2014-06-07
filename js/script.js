@@ -246,7 +246,32 @@ FB.api('/me/albums?fields=id,name', function(response) {
 	var canMouseY=0;
 
 
- function handleMouseDown(e){//滑鼠按下的函數
+ //起始畫面
+
+
+	var ctx = document.getElementById('canvas').getContext('2d'); //宣告變數找到頁面的canvas標籤的2d內容
+	ctx.font='20px "Arial"'; //設定字體與大小
+	ctx.fillText("Click here to start fill with Facebook Profile Picture", 40, 270); //設定預設的開始畫面
+    var img = new Image(); // 新增圖像1
+    img.src = "img/overlay.png"; //圖像路徑（路徑自己設，且自己加入想要的圖層）
+	var img2 = new Image(); //新增圖像2 
+	img2.src = "img/overlayback.png" //圖像路徑
+	var img3 = new Image();//新增圖像3
+	img3.src = "img/typography.png"//圖像路徑
+
+	$('#pattern').change(function() {
+    var val = $("#pattern option:selected").text();
+    console.log(val)
+    img2.src = "img/" + val + ".png" ; //圖像路徑
+	ctx.drawImage(img2,0,0); //劃入img2
+
+	});
+
+
+
+	$( "#canvas" ).mouseover(function() {
+
+	function handleMouseDown(e){//滑鼠按下的函數
       canMouseX=parseInt(e.clientX-offsetX);//抓滑鼠游標X
       canMouseY=parseInt(e.clientY-offsetY);//抓滑鼠游標y
       // set the drag flag
@@ -272,26 +297,22 @@ FB.api('/me/albums?fields=id,name', function(response) {
       canMouseY=parseInt(e.clientY-offsetY);
      }
 
- //起始畫面
 
+	// 抓取滑鼠移動的event
+    $("#canvas").mousedown(function(e){handleMouseDown(e);});
+    $("#canvas").mousemove(function(e){handleMouseMove(e);});
+    $("#canvas").mouseup(function(e){handleMouseUp(e);});
+    $("#canvas").mouseout(function(e){handleMouseOut(e);});
+    
 
-	var ctx = document.getElementById('canvas').getContext('2d'); //宣告變數找到頁面的canvas標籤的2d內容
-	ctx.font='20px "Arial"'; //設定字體與大小
-	ctx.fillText("Click here to start fill with Facebook Profile Picture", 40, 270); //設定預設的開始畫面
-    var img = new Image(); // 新增圖像1
-    img.src = "img/overlay.png"; //圖像路徑（路徑自己設，且自己加入想要的圖層）
-	var img2 = new Image(); //新增圖像2 
-	img2.src = "img/overlayback.png" //圖像路徑
-	var img3 = new Image();//新增圖像3
-	img3.src = "img/typography.png"//圖像路徑
+		ctx.drawImage(img3,canMouseX-128/2,canMouseY-120/2); //劃入img3，並根據你的滑鼠游標移動，你可以自行更換想要移動的圖層，數值會因XY軸向有所不同
+		ctx.drawImage(img2,0,0); //劃入img2
+		var inputedText = $('#inputed').val();//抓取頁面inputed ID的內容
+		ctx.fillStyle = "black"; //字體顏色
+		ctx.font='20px "微軟正黑體"'; //字體大小和字形
+		ctx.fillText(inputedText, canMouseX-1/2,canMouseY-30/2); //字體也可以依據滑鼠游標移動，所輸入的值可自行調整，若不想移動輸入的字體，可以把它改成（inputedText,0,0)X Y軸 0，0的位置
 
-	$('#pattern').change(function() {
-    var val = $("#pattern option:selected").text();
-    console.log(val)
-    img2.src = "img/" + val + ".png" ; //圖像路徑
-	ctx.drawImage(img2,0,0); //劃入img2
-
-	});
+});
 
 
 function photoClick(id) {
@@ -309,20 +330,13 @@ function photoClick(id) {
 			console.log(selectIMG.width)
 
 			ctx.drawImage(selectIMG,0,0);//從XY軸0，0值開始畫如selectIMG
-			ctx.drawImage(img3,canMouseX-128/2,canMouseY-120/2); //劃入img3，並根據你的滑鼠游標移動，你可以自行更換想要移動的圖層，數值會因XY軸向有所不同
+			// ctx.drawImage(img3,canMouseX-128/2,canMouseY-120/2); //劃入img3，並根據你的滑鼠游標移動，你可以自行更換想要移動的圖層，數值會因XY軸向有所不同
 			// ctx.drawImage(img2,0,0); //劃入img2
-			var inputedText = $('#inputed').val();//抓取頁面inputed ID的內容
-			ctx.fillStyle = "black"; //字體顏色
-			ctx.font='20px "微軟正黑體"'; //字體大小和字形
-			ctx.fillText(inputedText, canMouseX-1/2,canMouseY-30/2); //字體也可以依據滑鼠游標移動，所輸入的值可自行調整，若不想移動輸入的字體，可以把它改成（inputedText,0,0)X Y軸 0，0的位置
+			// var inputedText = $('#inputed').val();//抓取頁面inputed ID的內容
+			// ctx.fillStyle = "black"; //字體顏色
+			// ctx.font='20px "微軟正黑體"'; //字體大小和字形
+			// ctx.fillText(inputedText, canMouseX-1/2,canMouseY-30/2); //字體也可以依據滑鼠游標移動，所輸入的值可自行調整，若不想移動輸入的字體，可以把它改成（inputedText,0,0)X Y軸 0，0的位置
 
-
-
-	// 抓取滑鼠移動的event
-    $("#canvas").mousedown(function(e){handleMouseDown(e);});
-    $("#canvas").mousemove(function(e){handleMouseMove(e);});
-    $("#canvas").mouseup(function(e){handleMouseUp(e);});
-    $("#canvas").mouseout(function(e){handleMouseOut(e);});
 
 };
 
