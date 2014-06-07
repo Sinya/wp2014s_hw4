@@ -254,31 +254,31 @@ FB.api('/me/albums?fields=id,name', function(response) {
  
 // };
 
- function handleMouseDown(e){//滑鼠按下的函數
-      canMouseX=parseInt(e.clientX-offsetX);//抓滑鼠游標X
-      canMouseY=parseInt(e.clientY-offsetY);//抓滑鼠游標y
-      // set the drag flag
-      isDragging=true;//宣告拖拉變數
-    }
+ // function handleMouseDown(e){//滑鼠按下的函數
+ //      canMouseX=parseInt(e.clientX-offsetX);//抓滑鼠游標X
+ //      canMouseY=parseInt(e.clientY-offsetY);//抓滑鼠游標y
+ //      // set the drag flag
+ //      isDragging=true;//宣告拖拉變數
+ //    }
 
-    function handleMouseUp(e){//滑鼠放掉的函數
-      canMouseX=parseInt(e.clientX-offsetX);
-      canMouseY=parseInt(e.clientY-offsetY);
-      // clear the drag flag
-      isDragging=false;
-    }
+ //    function handleMouseUp(e){//滑鼠放掉的函數
+ //      canMouseX=parseInt(e.clientX-offsetX);
+ //      canMouseY=parseInt(e.clientY-offsetY);
+ //      // clear the drag flag
+ //      isDragging=false;
+ //    }
 
-    function handleMouseOut(e){//滑鼠移開的函數
-      canMouseX=parseInt(e.clientX-offsetX);
-      canMouseY=parseInt(e.clientY-offsetY);
-      // user has left the canvas, so clear the drag flag
-      //isDragging=false;
-    }
+ //    function handleMouseOut(e){//滑鼠移開的函數
+ //      canMouseX=parseInt(e.clientX-offsetX);
+ //      canMouseY=parseInt(e.clientY-offsetY);
+ //      // user has left the canvas, so clear the drag flag
+ //      //isDragging=false;
+ //    }
 
-    function handleMouseMove(e){//滑鼠移動的event
-      canMouseX=parseInt(e.clientX-offsetX);
-      canMouseY=parseInt(e.clientY-offsetY);
-     }
+ //    function handleMouseMove(e){//滑鼠移動的event
+ //      canMouseX=parseInt(e.clientX-offsetX);
+ //      canMouseY=parseInt(e.clientY-offsetY);
+ //     }
 
 function photoClick(id) {
 
@@ -326,10 +326,10 @@ function photoClick(id) {
 
 
 	//抓取滑鼠移動的event
-    $("#canvas").mousedown(function(e){handleMouseDown(e);});
-    $("#canvas").mousemove(function(e){handleMouseMove(e);});
-    $("#canvas").mouseup(function(e){handleMouseUp(e);});
-    $("#canvas").mouseout(function(e){handleMouseOut(e);});
+    // $("#canvas").mousedown(function(e){handleMouseDown(e);});
+    // $("#canvas").mousemove(function(e){handleMouseMove(e);});
+    // $("#canvas").mouseup(function(e){handleMouseUp(e);});
+    // $("#canvas").mouseout(function(e){handleMouseOut(e);});
 
 
 
@@ -344,7 +344,7 @@ function photoClick(id) {
 
 
 $('#pattern').change(function() {
-    var val = $("#album option:selected").text();
+    var val = $("#pattern option:selected").text();
     console.log(val)
     alert(val);
 });
