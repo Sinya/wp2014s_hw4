@@ -280,9 +280,7 @@ FB.api('/me/albums?fields=id,name', function(response) {
  //      canMouseY=parseInt(e.clientY-offsetY);
  //     }
 
-function photoClick(id) {
-
-	//起始畫面
+ //起始畫面
 	var ctx = document.getElementById('canvas').getContext('2d'); //宣告變數找到頁面的canvas標籤的2d內容
 	ctx.font='20px "Arial"'; //設定字體與大小
 	ctx.fillText("Click here to start fill with Facebook Profile Picture", 240, 270); //設定預設的開始畫面
@@ -292,6 +290,8 @@ function photoClick(id) {
 	img2.src = "img/overlayback.png" //圖像路徑
 	var img3 = new Image();//新增圖像3
 	img3.src = "img/typography.png"//圖像路徑
+
+function photoClick(id) {
 	
 
 	var canvas=document.getElementById("canvas"); //宣告變數找到canvas標籤
