@@ -300,8 +300,12 @@ FB.api('/me/albums?fields=id,name', function(response) {
       canMouseY=parseInt(e.clientY-offsetY);
       ctx.clearRect(0,0,canvasWidth,canvasHeight); //移除canvas起始的內容
 	  // ctx.drawImage(img2,0,0); //劃入img2
-	  if (selectIMG != undefined)
-      ctx.drawImage(selectIMG,canMouseX-128/2,canMouseY-120/2); //劃入img3，並根據你的滑鼠游標移動，你可以自行更換想要移動的圖層，數值會因XY軸向有所不同
+   // if the drag flag is set, clear the canvas and draw the image
+	      if(isDragging){ //當拖拉為True時
+	  
+			  if (selectIMG != undefined)
+		      	ctx.drawImage(selectIMG,canMouseX-128/2,canMouseY-120/2); //劃入img3，並根據你的滑鼠游標移動，你可以自行更換想要移動的圖層，數值會因XY軸向有所不同
+	     }
      }
 
 
