@@ -206,11 +206,35 @@ function getMyAlbum() {
 FB.api('/me/albums?fields=id,name', function(response) {
   for (var i = 0; i < response.data.length; i++) {
     var album = response.data[i];
+    window.album = album;
+
 
     console.log(album.name);
 
     $("#album").append("<option id="+album.id + ">"+ album.name + "</option>");
 
+
+   //    FB.api('/'+album.id+'/photos', function(photos){
+   //      if (photos && photos.data && photos.data.length){
+   //        for (var j=0; j<photos.data.length; j++){
+   //          var photo = photos.data[j];
+   //          // photo.picture contain the link to picture
+   //          var image = document.createElement('img');
+   //          image.src = photo.picture;
+   //          // document.body.appendChild(image);
+   //          $("#photo").append("<img id="+photo.id + " src=" + image.src  + " onClick=" + "alert(" + "\"HelloWorld!\"" + ")" + ">");
+			// console.log(image.src);
+   //        }
+   //      }
+   //    });
+ 
+  // 	console.log(strUser);
+
+}});
+};
+
+
+function getMyPhoto(album) {
 
       FB.api('/'+album.id+'/photos', function(photos){
         if (photos && photos.data && photos.data.length){
@@ -226,12 +250,7 @@ FB.api('/me/albums?fields=id,name', function(response) {
         }
       });
  
-  // 	console.log(strUser);
-
-}});
 };
-
-
 
 // Post a BASE64 Encoded PNG Image to facebook，以下程式為把照片po到facebook的方法，基本上這樣就可以不用動了，
 // 但思考authToken該怎麼拿到，因為這裡我並沒有把使用者登入的token載入到這函數內，所以它是不會得到token的
