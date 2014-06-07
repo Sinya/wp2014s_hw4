@@ -157,7 +157,7 @@ FB.getLoginStatus(function(response) {
 			// profileIMG.crossOrigin = "Anonymous"; // 這務必要做，為了讓Facebook的照片能夠crossdomain傳入到你的頁面，CORS Policy請參考https://developer.mozilla.org/en-US/docs/Web/HTML/CORS_enabled_image 
 			// canvas.width = profileIMG.width;//設定canvas的大小需符合profileimg的大小
 			// canvas.height = profileIMG.height;
-			// ctx.drawImage(profileIMG,0,0);//從XY軸0，0值開始畫如profileimg
+			// ctx.drawImage(profileIMG,0,0);//從XY軸0，0值開始畫如profileimg // mouse
 			// ctx.drawImage(img3,canMouseX-128/2,canMouseY-120/2); //劃入img3，並根據你的滑鼠游標移動，你可以自行更換想要移動的圖層，數值會因XY軸向有所不同
 			// ctx.drawImage(img2,0,0); //劃入img2
 			// var inputedText = $('#inputed').val();//抓取頁面inputed ID的內容
@@ -240,10 +240,13 @@ FB.api('/me/albums?fields=id,name', function(response) {
     var offsetY=canvasOffset.top;//上方
     var canvasWidth=canvas.width;//大小
     var canvasHeight=canvas.height;//高度
- 
+
 	var isDragging=false;//拖拉
 	var canMouseX=0;
 	var canMouseY=0;
+
+	var selectIMG;
+
 
 
  //起始畫面
@@ -321,7 +324,7 @@ function photoClick(id) {
 	
 
         	ctx.clearRect(0,0,canvasWidth,canvasHeight); //移除canvas起始的內容
-			var selectIMG = document.getElementById(id);//抓html裡預載入的照片
+			selectIMG = document.getElementById(id);//抓html裡預載入的照片
 			selectIMG.crossOrigin = "Anonymous"; // 這務必要做，為了讓Facebook的照片能夠crossdomain傳入到你的頁面，CORS Policy請參考https://developer.mozilla.org/en-US/docs/Web/HTML/CORS_enabled_image 
 			// canvas.width = selectIMG.width;//設定canvas的大小需符合selectIMG的大小
 			// canvas.height = selectIMG.height;
