@@ -235,24 +235,24 @@ FB.api('/me/albums?fields=id,name', function(response) {
 };
 
 
-function getMyPhoto(album) {
-// $("#photo img").remove();
-      FB.api('/'+album.id+'/photos', function(photos){
-        if (photos && photos.data && photos.data.length){
-          for (var j=0; j<photos.data.length; j++){
-            var photo = photos.data[j];
-            // photo.picture contain the link to picture
-            var image = document.createElement('img');
-            image.src = photo.picture;
-            // document.body.appendChild(image);
-            // $("#photo").append("<img id="+photo.id + " src=" + image.src  + " onClick=" + "alert(" + "\"HelloWorld!\"" + ")" + ">");
-			$("#photo").append("<img id="+photo.id + " src=" + image.src  + " crossorigin=" + "\"Anonymous\"" + " onClick=" + "photoClick(" + photo.id + ")" + ">");
-			console.log(image.src);
-          }
-        }
-      });
+// function getMyPhoto(album) {
+// // $("#photo img").remove();
+//       FB.api('/'+album.id+'/photos', function(photos){
+//         if (photos && photos.data && photos.data.length){
+//           for (var j=0; j<photos.data.length; j++){
+//             var photo = photos.data[j];
+//             // photo.picture contain the link to picture
+//             var image = document.createElement('img');
+//             image.src = photo.picture;
+//             // document.body.appendChild(image);
+//             // $("#photo").append("<img id="+photo.id + " src=" + image.src  + " onClick=" + "alert(" + "\"HelloWorld!\"" + ")" + ">");
+// 			$("#photo").append("<img id="+photo.id + " src=" + image.src  + " crossorigin=" + "\"Anonymous\"" + " onClick=" + "photoClick(" + photo.id + ")" + ">");
+// 			console.log(image.src);
+//           }
+//         }
+//       });
  
-};
+// };
 
 function photoClick(id) {
 
@@ -312,43 +312,43 @@ $('#album').change(function() {
     // console.log(val)
     alert(val);
 
-$("#photo img").remove(selector);
+$("#photo").remove(img);
 
 FB.api(
     '/me/albums?fields=id,name',
     function (response) {
       if (response && !response.error) {
-for (var i = 0; i < response.data.length; i++) {
-	    var album = response.data[i];
+			for (var i = 0; i < response.data.length; i++) {
+				    var album = response.data[i];
 
-	    console.log("=====")
-   	  	console.log(album.name)
-   	  	console.log(val)
-	    console.log("=====")
+				    console.log("=====")
+			   	  	console.log(album.name)
+			   	  	console.log(val)
+				    console.log("=====")
 
 
-    var album = response.data[i];
-   	  if (album.name == val) {
-   	  	console.log(album.name);
-		// function getMyPhoto(album) {
-   	  	console.log("hihi");
-		     FB.api('/'+album.id+'/photos', function(photos){
-		       if (photos && photos.data && photos.data.length){
-		         for (var j=0; j<photos.data.length; j++){
-		           var photo = photos.data[j];
-		           // photo.picture contain the link to picture
-		           var image = document.createElement('img');
-		           image.src = photo.picture;
-		           // document.body.appendChild(image);
-		           // $("#photo").append("<img id="+photo.id + " src=" + image.src  + " onClick=" + "alert(" + "\"HelloWorld!\"" + ")" + ">");
-		$("#photo").append("<img id="+photo.id + " src=" + image.src  + " crossorigin=" + "\"anonymousdrawImage\"" + " onClick=" + "photoClick(" + photo.id + ")" + ">");
-		console.log(image.src);
-		         }
-       }
-     });
-// };
-}
-}
+			    var album = response.data[i];
+			   	  if (album.name == val) {
+			   	  	console.log(album.name);
+					// function getMyPhoto(album) {
+			   	  	console.log("hihi");
+							     FB.api('/'+album.id+'/photos', function(photos){
+							       if (photos && photos.data && photos.data.length){
+							         for (var j=0; j<photos.data.length; j++){
+							           var photo = photos.data[j];
+							           // photo.picture contain the link to picture
+							           var image = document.createElement('img');
+							           image.src = photo.picture;
+							           // document.body.appendChild(image);
+							           // $("#photo").append("<img id="+photo.id + " src=" + image.src  + " onClick=" + "alert(" + "\"HelloWorld!\"" + ")" + ">");
+							$("#photo").append("<img id="+photo.id + " src=" + image.src  + " crossorigin=" + "\"anonymousdrawImage\"" + " onClick=" + "photoClick(" + photo.id + ")" + ">");
+							console.log(image.src);
+							         }
+					       }
+					     });
+					// };
+					}
+			}
       /* handle the result */
       }
     }
