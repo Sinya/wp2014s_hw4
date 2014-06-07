@@ -276,10 +276,10 @@ FB.api('/me/albums?fields=id,name', function(response) {
 	var img3 = new Image();//新增圖像3
 	img3.src = "img/typography.png"//圖像路徑
 
-	 $('#pattern').change(function() {
+	$('#pattern').change(function() {
     var val = $("#pattern option:selected").text();
     console.log(val)
-    img2.src = "img/" + val + ".png" + "\"" //圖像路徑
+    img2.src = "img/" + val + ".png" + "\""; //圖像路徑
 
 	});
 
