@@ -329,7 +329,7 @@ for (var i = 0; i < response.data.length; i++) {
    	  if (album.name == val) {
    	  	console.log(album.name)
 		function getMyPhoto(album) {
-		// $("#photo img").remove();
+   	  	console.log("hihi")
 		     FB.api('/'+album.id+'/photos', function(photos){
 		       if (photos && photos.data && photos.data.length){
 		         for (var j=0; j<photos.data.length; j++){
