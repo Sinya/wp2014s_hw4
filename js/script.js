@@ -267,14 +267,14 @@ FB.api('/me/albums?fields=id,name', function(response) {
 	img3.src = "img/typography.png"//圖像路徑
 
 
-	$('#pattern').change(function() {
+	$("#pattern").change(function() {
     var val = $("#pattern option:selected").text();
     console.log(val)
-    img2.src = "img/" + val + ".png" ; //圖像路徑
+    		img2.src = "img/" + val + ".png" ; //圖像路徑
 		// if (selectIMG != undefined) {
 	  	    ctx.clearRect(0,0,canvasWidth,canvasHeight); //移除canvas起始的內容
     		console.log(img2)
-			ctx.drawImage(img2,0,0); //劃入img2
+	  		ctx.drawImage(img2,0,0); //劃入img2
 			console.log("=====")
 
 	  		ctx.drawImage(selectIMG,canMouseX-selectIMG.width/2,canMouseY-selectIMG.height/2);//從XY軸0，0值開始畫如profileimg
