@@ -380,7 +380,25 @@ $('#album').change(function() {
 
 });
 
+function loadClick(files) {
+          var file = files[files.length-1];
+          var imageType = /image.*/;
+          
+          if (!file.type.match(imageType)) {
+            alert("檔案錯誤");
+          }
+          $('#photo').remove();
+          img = document.createElement("img");
+          img.id = "photo";
+          img.classList.add("obj");
+          img.file = file;
+          $('#image').append(img);
 
+          var reader = new FileReader();
+          reader.onload = (function(aImg) { return function(e) { aImg.src = e.target.result; }; })(img);
+          reader.readAsDataURL(file);
+
+}
 
   
 

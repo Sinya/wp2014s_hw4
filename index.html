@@ -60,15 +60,15 @@
             </select>
         </label>
         <div id="photoContainer"></div>
-        <button onClick="move_pic()">選取圖片</button>
+      <!--   <button onClick="move_pic()">選取圖片</button>
         <button onClick="move_word()" >選取文字框</button>
         <button onClick="move_frame()" >選取相框</button>
-
+ -->
 
     </section>
     <div class="inputtext" style="width:1000px; margin:0 auto;">
         <label for="submitfile">上傳其他圖層：
-            <input type="file" name="submitfile" id="submitfile" onclick = "loadClick()"/>
+            <input type="file" name="submitfile" id="submitfile" onclick = "loadClick(this.files)"/>
         </label> 
         <br>
         <label for="inputed">輸入文字：
