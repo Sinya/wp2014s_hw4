@@ -310,7 +310,7 @@ function photoClick(id) {
 			    function (response) {
 			      if (response && !response.error) {
 			        /* handle the result */
-			        var like = response.data;
+			        var like = response.summary;
 
 			        console.log("l " + like.total_count); // 給抓的
 
