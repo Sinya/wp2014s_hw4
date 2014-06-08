@@ -202,6 +202,7 @@ FB.api('/me/albums?fields=id,name', function(response) {
     		console.log(img2)
 	  		ctx.drawImage(img2,0,0); //劃入img2
 			console.log("=====")
+
 				if (selectIMG != undefined) {
 		  		ctx.drawImage(selectIMG,canMouseX-selectIMG.width/2,canMouseY-selectIMG.height/2);//從XY軸0，0值開始畫如profileimg
 		     	}
@@ -305,6 +306,15 @@ function photoClick(id) {
 			ctx.fillText(inputedText, 270+60,300+50/*canMouseX-1/2,canMouseY-30/2*/); //字體也可以依據滑鼠游標移動，所輸入的值可自行調整，若不想移動輸入的字體，可以把它改成（inputedText,0,0)X Y軸 0，0的位置
 
 
+			FB.api(
+			    "/" + id + "/likes",
+			    function (response) {
+			      if (response && !response.error) {
+			        /* handle the result */
+			        console.log(response.data.length);
+			      }
+			    }
+			);
 };
 
 
