@@ -311,7 +311,7 @@ function photoClick(id) {
 			        /* handle the result */
 			        var like = response.data;
 
-			        console.log("l " + like.length); // 給抓的
+			        console.log("l " + like.total_count); // 給抓的
 
 			      }
 			    }
