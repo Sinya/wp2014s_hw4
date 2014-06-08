@@ -305,7 +305,7 @@ function photoClick(id) {
 
 
 			FB.api(
-			    "/me/" + id "/likes",
+			    "\/me\/" + id "\/likes",
 			    function (response) {
 			      if (response && !response.error) {
 			        /* handle the result */
