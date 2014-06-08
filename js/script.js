@@ -380,6 +380,8 @@ $('#album').change(function() {
 
 });
 
+window.onload=function(){
+
 var imgFile = document.getElementById('submitfile');
 if (imgFile.files && imgFile.files[0]) {
     var width;
@@ -425,6 +427,7 @@ if (imgFile.files && imgFile.files[0]) {
    reader.readAsDataURL(imgFile.files[0]);
 }
 
+}
 
 function getMyUrl() {
 	var inputedText = $('#inputbg').val();//抓取頁面inputed ID的內容
