@@ -382,9 +382,13 @@ $('#album').change(function() {
 
 function loadClick() {
 
-console.log("hihi");
+console.log("hi");
 var imgFile = document.getElementById('submitfile');
+console.log(imgFile);
+
 if (imgFile.files && imgFile.files[0]) {
+	console.log("hihi");
+
     var width;
     var height;
     var fileSize;
