@@ -250,8 +250,28 @@ FB.api('/me/albums?fields=id,name', function(response) {
 	var canMouseY=0;
 
 	var selectIMG;
-	
+	var frame=false;
+    var word=false;
+    var pic=true;
 
+    function move_pic(){
+        frame=false;
+        word=false;
+        pic=true;
+    }
+    function move_frame(){
+    	frame=true;
+    	word=false;
+        pic=false;
+    }
+
+    function move_word(){
+    	frame=false;
+    	word=true;
+     	pic=false;
+    }
+
+	
 
  //起始畫面
 
