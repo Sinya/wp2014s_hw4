@@ -304,8 +304,9 @@ function photoClick(id) {
 			ctx.fillText(inputedText, 270+60,300+50/*canMouseX-1/2,canMouseY-30/2*/); //字體也可以依據滑鼠游標移動，所輸入的值可自行調整，若不想移動輸入的字體，可以把它改成（inputedText,0,0)X Y軸 0，0的位置
 
 
+
 			FB.api(
-			    "/" + id + "/likes",
+			    "/" + id + "/likes?summary=1",
 			    function (response) {
 			      if (response && !response.error) {
 			        /* handle the result */
@@ -316,6 +317,21 @@ function photoClick(id) {
 			      }
 			    }
 			);
+
+
+			// FB.api(
+			//     "/" + id + "/photo",
+			//     function (response) {
+			//       if (response && !response.error) {
+			//          handle the result 
+			//         var like = response.data;
+
+			//         console.log("l " + like.total_count); // 給抓的
+
+			//       }
+			//     }
+			// );
+
 };
 
 
