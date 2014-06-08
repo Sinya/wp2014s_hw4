@@ -382,7 +382,7 @@ $('#album').change(function() {
 
 jQuery(document).ready(function() {
 
-    var images = jQuery('.thumb-wrapper img'); //caches the query when dom is ready
+    // var images = jQuery('.thumb-wrapper img'); //caches the query when dom is ready
     var CELL_WIDTH = 150;
     var ASPECT = 1.5;
         
@@ -392,8 +392,19 @@ jQuery(document).ready(function() {
         max: 200,
         value: 100,
         slide: function(event, ui) {
-            var size = (CELL_WIDTH * ui.value / 100) + "px";
-            images.stop(true).animate({width: size, height: size / ASPECT}, 250);
+            // var size = (CELL_WIDTH * ui.value / 100) + "px";
+               var size = (CELL_WIDTH * ui.value / 100) ;
+
+            // images.stop(true).animate({width: size, height: size / ASPECT}, 250);
+            ctx.drawImage(selectIMG,0,0,size,size / ASPECT);//從XY軸0，0值開始畫如selectIMG
+			ctx.drawImage(img2,0,0); //劃入img2
+			
+			ctx.drawImage(img3,270,300);
+			var inputedText = $('#inputed').val();//抓取頁面inputed ID的內容
+			ctx.fillStyle = "black"; //字體顏色
+			ctx.font='20px "微軟正黑體"'; //字體大小和字形
+			ctx.fillText(inputedText, 270+60,300+50/*canMouseX-1/2,canMouseY-30/2*/); //字體也可以依據滑鼠游標移動，所輸入的值可自行調整，若不想移動輸入的字體，可以把它改成（inputedText,0,0)X Y軸 0，0的位置
+
         }
     });
 
