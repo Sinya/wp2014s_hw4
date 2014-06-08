@@ -233,9 +233,14 @@ FB.api('/me/albums?fields=id,name', function(response) {
 // };
 
 
-	var canvas=document.getElementById("canvas"); //宣告變數找到canvas標籤
+	var canvas=document.getElementById("layer1"); //宣告變數找到canvas標籤
     var ctx=canvas.getContext("2d"); //找到2d內容
-    var canvasOffset=$("#canvas").offset();//找到offset
+    var canvasOffset=$("#layer1").offset();//找到offset
+
+    var canvas2=document.getElementById("layer2"); //宣告變數找到canvas標籤
+    var ctx=canvas2.getContext("2d"); //找到2d內容
+    var canvasOffset=$("#layer2").offset();//找到offset
+
     var offsetX=canvasOffset.left;//左方
     var offsetY=canvasOffset.top;//上方
     var canvasWidth=canvas.width;//大小
@@ -252,8 +257,12 @@ FB.api('/me/albums?fields=id,name', function(response) {
  //起始畫面
 
 
-	var ctx = document.getElementById('canvas').getContext('2d'); //宣告變數找到頁面的canvas標籤的2d內容
+	var ctx = document.getElementById('layer1').getContext('2d'); //宣告變數找到頁面的canvas標籤的2d內容
+	var ctx2 = document.getElementById('layer2').getContext('2d'); //宣告變數找到頁面的canvas標籤的2d內容
+
 	ctx.font='20px "Arial"'; //設定字體與大小
+	ctx2.font='20px "Arial"'; //設定字體與大小
+
 	ctx.fillText("Click here to start fill with Facebook Profile Picture", 40, 270); //設定預設的開始畫面
     var img = new Image(); // 新增圖像1
     img.src = "img/overlay.png"; //圖像路徑（路徑自己設，且自己加入想要的圖層）
@@ -268,9 +277,9 @@ FB.api('/me/albums?fields=id,name', function(response) {
     console.log(val)
     img2.src = "img/" + val + ".png" ; //圖像路徑
 		if (selectIMG != undefined) {
-	  	    ctx.clearRect(0,0,canvasWidth,canvasHeight); //移除canvas起始的內容
-			ctx.drawImage(img2,0,0); //劃入img2
-	  		ctx.drawImage(selectIMG,canMouseX-150,canMouseY); //劃入img3，並根據你的滑鼠游標移動，你可以自行更換想要移動的圖層，數值會因XY軸向有所不同
+	  	    ctx2.clearRect(0,0,canvasWidth,canvasHeight); //移除canvas起始的內容
+			ctx2.drawImage(img2,0,0); //劃入img2
+	  		// ctx.drawImage(selectIMG,canMouseX-150,canMouseY); //劃入img3，並根據你的滑鼠游標移動，你可以自行更換想要移動的圖層，數值會因XY軸向有所不同
 	     }
 	});
 
