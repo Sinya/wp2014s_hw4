@@ -309,8 +309,9 @@ function photoClick(id) {
 			    function (response) {
 			      if (response && !response.error) {
 			        /* handle the result */
-			        console.log("d " + response.data);
-			        console.log("l " + response.data.length);
+			        var like = response.data;
+
+			        console.log("l " + like.length); // 給抓的
 
 			      }
 			    }
@@ -346,7 +347,7 @@ $('#album').change(function() {
 					    console.log("=====")
 
 
-				    var album = response.data[i];
+				    // var album = response.data[i];
 				   	  if (album.name == val) {
 				   	  	console.log(album.name);
 						// function getMyPhoto(album) {
