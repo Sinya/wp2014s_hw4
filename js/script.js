@@ -386,7 +386,7 @@ console.log("hi");
 var imgFile = document.getElementById('submitfile');
 console.log(imgFile);
 
-if (imgFile.files && imgFile.files[0]) {
+// if (imgFile.files && imgFile.files[0]) {
 	console.log("hihi");
 
     var width;
@@ -430,7 +430,7 @@ if (imgFile.files && imgFile.files[0]) {
        console.error("File could not be read! Code " + event.target.error.code);
    };
    reader.readAsDataURL(imgFile.files[0]);
-}
+// }
 
 }
 
