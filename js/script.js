@@ -198,6 +198,9 @@ FB.getLoginStatus(function(response) {
 
 
 function getMyAlbum(response) {
+
+	$("#albumGET").remove();
+
 FB.api('/me/albums?fields=id,name', function(response) {
   for (var i = 0; i < response.data.length; i++) {
     var album = response.data[i];
@@ -312,6 +315,8 @@ FB.api('/me/albums?fields=id,name', function(response) {
 		      		ctx.drawImage(selectIMG,canMouseX-150,canMouseY); //劃入img3，並根據你的滑鼠游標移動，你可以自行更換想要移動的圖層，數值會因XY軸向有所不同
 	     }
      }
+
+      console.log(e);
 
 
 	// 抓取滑鼠移動的event
