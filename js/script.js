@@ -267,7 +267,7 @@ FB.api('/me/albums?fields=id,name', function(response) {
     var img = new Image(); // 新增圖像1
     img.src = "img/overlay.png"; //圖像路徑（路徑自己設，且自己加入想要的圖層）
 	var img2 = new Image(); //新增圖像2 
-	img2.src = "img/overlayback.png" //圖像路徑
+	img2.src = "img/overlay1.png" //圖像路徑
 	var img3 = new Image();//新增圖像3
 	img3.src = "img/typography.png"//圖像路徑
 
@@ -284,7 +284,7 @@ FB.api('/me/albums?fields=id,name', function(response) {
 	});
 
 
-	$( "#canvas" ).mouseover(function() {
+	$( "#layer1" ).mouseover(function() {
 
 	function handleMouseDown(e){//滑鼠按下的函數
       canMouseX=parseInt(e.clientX-offsetX);//抓滑鼠游標X
@@ -323,10 +323,10 @@ FB.api('/me/albums?fields=id,name', function(response) {
 
 
 	// 抓取滑鼠移動的event
-    $("#canvas").mousedown(function(e){handleMouseDown(e);});
-    $("#canvas").mousemove(function(e){handleMouseMove(e);});
-    $("#canvas").mouseup(function(e){handleMouseUp(e);});
-    $("#canvas").mouseout(function(e){handleMouseOut(e);});
+    $("#layer1").mousedown(function(e){handleMouseDown(e);});
+    $("#layer1").mousemove(function(e){handleMouseMove(e);});
+    $("#layer1").mouseup(function(e){handleMouseUp(e);});
+    $("#layer1").mouseout(function(e){handleMouseOut(e);});
 
 
 		var inputedText = $('#inputed').val();//抓取頁面inputed ID的內容
@@ -437,7 +437,7 @@ function getMyUrl() {
 // 但思考authToken該怎麼拿到，因為這裡我並沒有把使用者登入的token載入到這函數內，所以它是不會得到token的
 function PostImageToFacebook(authToken) {
 	$('.info').append('<img src="img/loading.gif"/>')//載入loading的img
-    var canvas = document.getElementById("canvas");//找canvas
+    var canvas = document.getElementById("layer1");//找canvas
     var imageData = canvas.toDataURL("image/png");//把canvas轉換PNG
     try {
         blob = dataURItoBlob(imageData);//把影像載入轉換函數
