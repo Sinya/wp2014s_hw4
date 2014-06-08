@@ -273,7 +273,10 @@ FB.api('/me/albums?fields=id,name', function(response) {
     img2.src = "img/" + val + ".png" ; //圖像路徑
 		// if (selectIMG != undefined) {
 	  	    ctx.clearRect(0,0,canvasWidth,canvasHeight); //移除canvas起始的內容
+    		console.log(img2)
 			ctx.drawImage(img2,0,0); //劃入img2
+			console.log("=====")
+
 	  		ctx.drawImage(selectIMG,canMouseX-selectIMG.width/2,canMouseY-selectIMG.height/2);//從XY軸0，0值開始畫如profileimg
 	  		// ctx.drawImage(selectIMG,canMouseX-150,canMouseY); //劃入img3，並根據你的滑鼠游標移動，你可以自行更換想要移動的圖層，數值會因XY軸向有所不同
 	     // }
