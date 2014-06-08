@@ -319,7 +319,7 @@ FB.api('/me/albums?fields=id,name', function(response) {
 	     
 		      	}
 	     }
-     // }
+     }
 
       // console.log(e);
 
