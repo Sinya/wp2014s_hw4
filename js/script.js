@@ -306,6 +306,7 @@ function photoClick(id) {
 			        var photo = response;
 			        console.log(photo);
 			        console.log("ct " + photo.created_time.substring(0,10)); // 給抓的
+    				$("#photoContainer").append("<strong>"+ "Creat at " + photo.created_time.substring(0,10) + "</strong>");
 
 			      }
 			    }
