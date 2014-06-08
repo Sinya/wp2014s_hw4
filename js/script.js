@@ -138,6 +138,15 @@ FB.api('/me/albums?fields=id,name', function(response) {
 }});
 };
 
+	function canvasImage(x, y, img) {
+    this.image = img;
+    this.x = x;
+    this.y = y;
+    this.width = img.width;
+    this.height = img.height;
+    return this;
+	}
+
 	var canvas=document.getElementById("canvas"); //宣告變數找到canvas標籤
     var ctx=canvas.getContext("2d"); //找到2d內容
     var canvasOffset=$("#canvas").offset();//找到offset
@@ -152,6 +161,8 @@ FB.api('/me/albums?fields=id,name', function(response) {
 	var canMouseY=0;
 
 	var selectIMG;
+	var canvasImage = new canvasImage(0, 0, selectIMG);
+
 	// var frame=false;
  //    var word=false;
  //    var pic=true;
@@ -159,15 +170,7 @@ FB.api('/me/albums?fields=id,name', function(response) {
     
 
  //起始畫面
- 	function canvasImage(x, y, img) {
-    this.image = img;
-    this.x = x;
-    this.y = y;
-    this.width = img.width;
-    this.height = img.height;
-    return this;
-	}
-
+ 
 
 	var ctx = document.getElementById('canvas').getContext('2d'); //宣告變數找到頁面的canvas標籤的2d內容
 	ctx.font='20px "Arial"'; //設定字體與大小
@@ -305,7 +308,6 @@ function photoClick(id) {
 			canvas.height = 500;
 			console.log(selectIMG.height)
 			console.log(selectIMG.width)
-			var canvasImage = new canvasImage(0, 0, selectIMG);
 
 			ctx.drawImage(selectIMG,0,0);//從XY軸0，0值開始畫如selectIMG
 			ctx.drawImage(img2,0,0); //劃入img2
