@@ -336,7 +336,7 @@ FB.api('/me/albums?fields=id,name', function(response) {
 		ctx.font='20px "微軟正黑體"'; //字體大小和字形
 		ctx.fillText(inputedText, canMouseX-1/2,canMouseY-30/2); //字體也可以依據滑鼠游標移動，所輸入的值可自行調整，若不想移動輸入的字體，可以把它改成（inputedText,0,0)X Y軸 0，0的位置
 
-});
+// });
 
 
 function photoClick(id) {
