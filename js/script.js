@@ -330,14 +330,6 @@ function photoClick(id) {
 };
 
 
-// $('#album').change(function() {
-//     var val = $("#album option:selected").text();
-//     console.log(val)
-//     alert(val);
-// });
-
-
-
 $('#album').change(function() {
 	    var val = $("#album option:selected").text();
 	    // console.log(val)
@@ -387,6 +379,51 @@ $('#album').change(function() {
 
 
 });
+
+var imgFile = document.getElementById('submitfile');
+if (imgFile.files && imgFile.files[0]) {
+    var width;
+    var height;
+    var fileSize;
+    var reader = new FileReader();
+    reader.onload = function(event) {
+        var dataUri = event.target.result,
+        img = document.createElement("img");
+        img.src = dataUri;
+        width = img.width;
+        height = img.height;
+        fileSize = imgFile.files[0].size;
+        alert(width);
+        alert(height);
+        alert(fileSize);
+
+        $("#photoContainer strong").remove();
+        	ctx.clearRect(0,0,canvasWidth,canvasHeight); //移除canvas起始的內容
+			img.crossOrigin = "Anonymous"; // 這務必要做，為了讓Facebook的照片能夠crossdomain傳入到你的頁面，CORS Policy請參考https://developer.mozilla.org/en-US/docs/Web/HTML/CORS_enabled_image 
+			// canvas.width = selectIMG.width;//設定canvas的大小需符合selectIMG的大小
+			// canvas.height = selectIMG.height;
+
+			canvas.width = 540;//設定canvas的大小需符合selectIMG的大小
+			canvas.height = 500;
+			console.log(selectIMG.height)
+			console.log(selectIMG.width)
+
+			ctx.drawImage(img,0,0);//從XY軸0，0值開始畫如selectIMG
+			ctx.drawImage(img2,0,0); //劃入img2
+			
+			ctx.drawImage(img3,270,300);
+			var inputedText = $('#inputed').val();//抓取頁面inputed ID的內容
+			ctx.fillStyle = "black"; //字體顏色
+			ctx.font='20px "微軟正黑體"'; //字體大小和字形
+			ctx.fillText(inputedText, 270+60,300+50/*canMouseX-1/2,canMouseY-30/2*/); //字體也可以依據滑鼠游標移動，所輸入的值可自行調整，若不想移動輸入的字體，可以把它改成（inputedText,0,0)X Y軸 0，0的位置
+
+
+   };
+   reader.onerror = function(event) {
+       console.error("File could not be read! Code " + event.target.error.code);
+   };
+   reader.readAsDataURL(imgFile.files[0]);
+}
 
 
 function getMyUrl() {
