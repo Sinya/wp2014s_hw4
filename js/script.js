@@ -303,9 +303,9 @@ function photoClick(id) {
 			    function (response) {
 			      if (response && !response.error) {
 			        /* handle the result */
-			        var photo = response.data;
+			        var photo = response;
 			        console.log(photo);
-			        // console.log("ct " + photo.created_time); // 給抓的
+			        console.log("ct " + photo.created_time); // 給抓的
 
 			      }
 			    }
