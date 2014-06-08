@@ -254,24 +254,7 @@ FB.api('/me/albums?fields=id,name', function(response) {
     var word=false;
     var pic=true;
 
-    function move_pic(){
-        frame=false;
-        word=false;
-        pic=true;
-    }
-    function move_frame(){
-    	frame=true;
-    	word=false;
-        pic=false;
-    }
-
-    function move_word(){
-    	frame=false;
-    	word=true;
-     	pic=false;
-    }
-
-	
+    
 
  //起始畫面
 
@@ -297,7 +280,6 @@ FB.api('/me/albums?fields=id,name', function(response) {
 			console.log("=====")
 				if (selectIMG != undefined) {
 		  		ctx.drawImage(selectIMG,canMouseX-selectIMG.width/2,canMouseY-selectIMG.height/2);//從XY軸0，0值開始畫如profileimg
-		  		// ctx.drawImage(selectIMG,canMouseX-150,canMouseY); //劃入img3，並根據你的滑鼠游標移動，你可以自行更換想要移動的圖層，數值會因XY軸向有所不同
 		     	}
 	});
 
@@ -342,6 +324,25 @@ FB.api('/me/albums?fields=id,name', function(response) {
      }
 
       // console.log(e);
+
+    function move_pic(){
+        frame=false;
+        word=false;
+        pic=true;
+    }
+    function move_frame(){
+    	frame=true;
+    	word=false;
+        pic=false;
+    }
+
+    function move_word(){
+    	frame=false;
+    	word=true;
+     	pic=false;
+    }
+
+	
 
 
 	// 抓取滑鼠移動的event
