@@ -239,23 +239,6 @@ FB.api('/me/albums?fields=id,name', function(response) {
 	     }
      }
 
-  //     // console.log(e);
- 	// function move_pic(){
-  //     frame=false;
-  //     word=false;
-  //     pic=true;
-  //   }
-  //   function move_frame(){
-  //   	frame=true;
-  //   	word=false;
-  //       pic=false;
-  //   }
-
-  //   function move_word(){
-  //   	frame=false;
-  //   	word=true;
-  //     pic=false;
-  //   }
 
 	// 抓取滑鼠移動的event
     $("#canvas").mousedown(function(e){handleMouseDown(e);});
@@ -396,6 +379,7 @@ jQuery(document).ready(function() {
                var size = (CELL_WIDTH * ui.value / 100) ;
 
             // images.stop(true).animate({width: size, height: size / ASPECT}, 250);
+            ctx.clearRect(0,0,canvasWidth,canvasHeight); //移除canvas起始的內容
             ctx.drawImage(selectIMG,0,0,size,size / ASPECT);//從XY軸0，0值開始畫如selectIMG
 			ctx.drawImage(img2,0,0); //劃入img2
 			
