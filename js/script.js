@@ -305,12 +305,12 @@ function photoClick(id) {
 
 
 			FB.api(
-			    "\/me\/" + id "\/likes",
+			    "/" + id + "/likes",
 			    function (response) {
 			      if (response && !response.error) {
 			        /* handle the result */
-			        console.log("data " + response.data.length);
-			        console.log("total " + response.data[0].total_count);
+			        console.log("d " + response.data);
+			        console.log("l " + response.data.length);
 
 			      }
 			    }
