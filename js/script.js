@@ -138,27 +138,6 @@ FB.api('/me/albums?fields=id,name', function(response) {
 }});
 };
 
-
-// function getMyPhoto(album) {
-// // $("#photo img").remove();
-//       FB.api('/'+album.id+'/photos', function(photos){
-//         if (photos && photos.data && photos.data.length){
-//           for (var j=0; j<photos.data.length; j++){
-//             var photo = photos.data[j];
-//             // photo.picture contain the link to picture
-//             var image = document.createElement('img');
-//             image.src = photo.picture;
-//             // document.body.appendChild(image);
-//             // $("#photo").append("<img id="+photo.id + " src=" + image.src  + " onClick=" + "alert(" + "\"HelloWorld!\"" + ")" + ">");
-// 			$("#photo").append("<img id="+photo.id + " src=" + image.src  + " crossorigin=" + "\"Anonymous\"" + " onClick=" + "photoClick(" + photo.id + ")" + ">");
-// 			console.log(image.src);
-//           }
-//         }
-//       });
- 
-// };
-
-
 	var canvas=document.getElementById("canvas"); //宣告變數找到canvas標籤
     var ctx=canvas.getContext("2d"); //找到2d內容
     var canvasOffset=$("#canvas").offset();//找到offset
@@ -311,8 +290,8 @@ function photoClick(id) {
 			      if (response && !response.error) {
 			        /* handle the result */
 			        var like = response.summary;
-
 			        console.log("l " + like.total_count); // 給抓的
+    				$("#photoContainer").append("<strong>"+ like.total_count+ "</strong>");
 
 			      }
 			    }
