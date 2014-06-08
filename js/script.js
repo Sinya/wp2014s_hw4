@@ -282,7 +282,7 @@ FB.api('/me/albums?fields=id,name', function(response) {
 	});
 
 
-	$("#canvas").mouseover(function() {
+	// $("#canvas").mouseover(function() {
 
 	function handleMouseDown(e){//滑鼠按下的函數
       canMouseX=parseInt(e.clientX-offsetX);//抓滑鼠游標X
@@ -319,7 +319,7 @@ FB.api('/me/albums?fields=id,name', function(response) {
 	     
 		      	}
 	     }
-     }
+     // }
 
       // console.log(e);
 
