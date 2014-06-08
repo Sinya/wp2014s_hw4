@@ -313,11 +313,12 @@ FB.api('/me/albums?fields=id,name', function(response) {
    // if the drag flag is set, clear the canvas and draw the image
 	      if(isDragging){ //當拖拉為True時
 	  
-			  if (selectIMG != undefined)
+			  if (selectIMG != undefined) {
 			  	    ctx.clearRect(0,0,canvasWidth,canvasHeight); //移除canvas起始的內容
 	  				// ctx2.drawImage(img2,0,0); //劃入img2
 
-		      		ctx.drawImage(selectIMG,canMouseX-150,canMouseY); 
+		      		ctx.drawImage(selectIMG,canMouseX,canMouseY); 
+		      	}
 	     }
      }
 
