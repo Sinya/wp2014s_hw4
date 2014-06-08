@@ -304,7 +304,7 @@ FB.api('/me/albums?fields=id,name', function(response) {
       canMouseX=parseInt(e.clientX-offsetX);
       canMouseY=parseInt(e.clientY-offsetY);
       // user has left the canvas, so clear the drag flag
-      //isDragging=false;
+      isDragging=false;
     }
 
     function handleMouseMove(e){//滑鼠移動的event
