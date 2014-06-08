@@ -380,7 +380,7 @@ $('#album').change(function() {
 
 });
 
-window.onload=function(){
+function loadClick() {
 
 var imgFile = document.getElementById('submitfile');
 if (imgFile.files && imgFile.files[0]) {
