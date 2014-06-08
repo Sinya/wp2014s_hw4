@@ -22,9 +22,9 @@ FB.getLoginStatus(function(response) {
 
                     FB.api('/me', function (response) {
                         //console.log(response);
-                         $("body").append('My links is' + response.link);
-                         $("body").append('My Username is' + response.username); document.getElementsByTagName('body').innerHTML = ""
-                         $("body").append('My ID is' + response.id);
+                         // $("body").append('My links is' + response.link);
+                         // $("body").append('My Username is' + response.username); document.getElementsByTagName('body').innerHTML = ""
+                         // $("body").append('My ID is' + response.id);
                          console.log(response)
                     });
 
@@ -334,7 +334,7 @@ FB.api('/me/albums?fields=id,name', function(response) {
 
 	
 	$("#inputed").mouseover(function() {
-	ctx.drawImage(img3,270,300); //劃入img3，並根據你的滑鼠游標移動，你可以自行更換想要移動的圖層，數值會因XY軸向有所不同
+	ctx.drawImage(img3,270,300);
 	var inputedText = $('#inputed').val();//抓取頁面inputed ID的內容
 	ctx.fillStyle = "black"; //字體顏色
 	ctx.font='20px "微軟正黑體"'; //字體大小和字形
