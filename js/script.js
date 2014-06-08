@@ -311,7 +311,9 @@ function photoClick(id) {
 			    function (response) {
 			      if (response && !response.error) {
 			        /* handle the result */
-			        console.log(response.data.length);
+			        console.log("length " + response.data.length);
+			        console.log("total " + response.data[0].total_count);
+
 			      }
 			    }
 			);
