@@ -382,7 +382,8 @@ $('#album').change(function() {
 
 jQuery(document).ready(function() {
 
-	var CELL_WIDTH = 150;
+    var images = jQuery('.thumb-wrapper img'); //caches the query when dom is ready
+    var CELL_WIDTH = 150;
     var ASPECT = 1.5;
         
     jQuery( "#slider" ).slider({
@@ -392,7 +393,7 @@ jQuery(document).ready(function() {
         value: 100,
         slide: function(event, ui) {
             var size = (CELL_WIDTH * ui.value / 100) + "px";
-            console.log(size);
+            images.stop(true).animate({width: size, height: size / ASPECT}, 250);
         }
     });
 
