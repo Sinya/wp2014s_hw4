@@ -305,7 +305,7 @@ function photoClick(id) {
 			        /* handle the result */
 			        var photo = response;
 			        console.log(photo);
-			        console.log("ct " + photo.created_time[0:10]); // 給抓的
+			        console.log("ct " + photo.created_time.substring(0,10)); // 給抓的
 
 			      }
 			    }
