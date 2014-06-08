@@ -389,6 +389,7 @@ jQuery(document).ready(function() {
         value: 100,
         slide: function(event, ui) {
             var size = (CELL_WIDTH * ui.value / 100) + "px";
+            console.log(size);
         }
     });
 
