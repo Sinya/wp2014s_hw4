@@ -318,7 +318,7 @@ FB.api('/me/albums?fields=id,name', function(response) {
 	     }
      }
 
-      console.log(e);
+      // console.log(e);
 
 
 	// 抓取滑鼠移動的event
