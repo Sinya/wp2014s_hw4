@@ -381,6 +381,9 @@ $('#album').change(function() {
 });
 
 jQuery(document).ready(function() {
+
+	var CELL_WIDTH = 150;
+    var ASPECT = 1.5;
         
     jQuery( "#slider" ).slider({
         step: 5,
