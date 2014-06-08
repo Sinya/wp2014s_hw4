@@ -291,25 +291,24 @@ function photoClick(id) {
 			        /* handle the result */
 			        var like = response.summary;
 			        console.log("l " + like.total_count); // 給抓的
-    				$("#photoContainer").append("<strong>"+ like.total_count+ "</strong>");
+    				$("#photoContainer").append("<strong>"+ like.total_count+ "Likes" "</strong>");
 
 			      }
 			    }
 			);
 
 
-			// FB.api(
-			//     "/" + id + "/photo",
-			//     function (response) {
-			//       if (response && !response.error) {
-			//          handle the result 
-			//         var like = response.data;
+			FB.api(
+			    "/"+ id,
+			    function (response) {
+			      if (response && !response.error) {
+			        /* handle the result */
+			        var photo = response.data;
+			        console.log("ct " + photo.created_time); // 給抓的
 
-			//         console.log("l " + like.total_count); // 給抓的
-
-			//       }
-			//     }
-			// );
+			      }
+			    }
+			);
 
 };
 
