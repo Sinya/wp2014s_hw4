@@ -97,9 +97,10 @@
           var file = files[files.length-1];
           var imageType = /image.*/;
           
-          if (!file.type.match(imageType)) {
-            alert("檔案錯誤");
-          }
+          // if (!file.type.match(imageType)) {
+          //   alert("檔案錯誤");
+          // }
+          
           $('#photo').remove();
           img = document.createElement("img");
           img.id = "photo";
