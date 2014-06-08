@@ -291,7 +291,7 @@ function photoClick(id) {
 			        /* handle the result */
 			        var like = response.summary;
 			        console.log("l " + like.total_count); // 給抓的
-    				$("#photoContainer").append("<strong>"+ like.total_count+ "Likes" "</strong>");
+    				$("#photoContainer").append("<strong>"+ like.total_count+ "Likes" + "</strong>");
 
 			      }
 			    }
@@ -299,7 +299,7 @@ function photoClick(id) {
 
 
 			FB.api(
-			    "/"+ id + "",
+			    "/"+ id ,
 			    function (response) {
 			      if (response && !response.error) {
 			        /* handle the result */
