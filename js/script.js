@@ -299,7 +299,7 @@ function photoClick(id) {
 
 
 			FB.api(
-			    "/"+ id,
+			    "/"+ id + "",
 			    function (response) {
 			      if (response && !response.error) {
 			        /* handle the result */
