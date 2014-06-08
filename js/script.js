@@ -299,6 +299,7 @@ function photoClick(id) {
 
 			ctx.drawImage(selectIMG,0,0);//從XY軸0，0值開始畫如selectIMG
 			ctx.drawImage(img2,0,0); //劃入img2
+			
 			ctx.drawImage(img3,270,300);
 			var inputedText = $('#inputed').val();//抓取頁面inputed ID的內容
 			ctx.fillStyle = "black"; //字體顏色
@@ -311,8 +312,8 @@ function photoClick(id) {
 			    function (response) {
 			      if (response && !response.error) {
 			        /* handle the result */
-			        console.log("length " + response.data.length);
-			        console.log("total " + response.data[0].total_count);
+			        console.log("data " + response.data);
+			        // console.log("total " + response.data[0].total_count);
 
 			      }
 			    }
