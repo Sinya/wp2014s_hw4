@@ -159,17 +159,30 @@ FB.api('/me/albums?fields=id,name', function(response) {
     
 
  //起始畫面
+ 	function canvasImage(x, y, img) {
+    this.image = img;
+    this.x = x;
+    this.y = y;
+    this.width = img.width;
+    this.height = img.height;
+    return this;
+	}
 
 
 	var ctx = document.getElementById('canvas').getContext('2d'); //宣告變數找到頁面的canvas標籤的2d內容
 	ctx.font='20px "Arial"'; //設定字體與大小
 	ctx.fillText("Click here to start fill with Facebook Profile Picture", 40, 270); //設定預設的開始畫面
-    var img = new Image(); // 新增圖像1
-    img.src = "img/overlay.png"; //圖像路徑（路徑自己設，且自己加入想要的圖層）
+    // var img = new Image(); // 新增圖像1
+    // img.src = "img/overlay.png"; //圖像路徑（路徑自己設，且自己加入想要的圖層）
+
 	var img2 = new Image(); //新增圖像2 
 	img2.src = "img/overlay1.png" //圖像路徑
+	var canvasImage2 = new canvasImage(0, 0, img2);
+
 	var img3 = new Image();//新增圖像3
 	img3.src = "img/typography.png"//圖像路徑
+	var canvasImage3 = new canvasImage(0, 0, img3);
+
 
 
 	$("#pattern").change(function() {
@@ -221,6 +234,11 @@ FB.api('/me/albums?fields=id,name', function(response) {
     function handleMouseMove(e){//滑鼠移動的event
       canMouseX=parseInt(e.clientX-offsetX);
       canMouseY=parseInt(e.clientY-offsetY);
+      console.log(canMouseX);
+      console.log(offsetX);
+      console.log(e.clientX);
+
+
    // if the drag flag is set, clear the canvas and draw the image
 	      if(isDragging){ //當拖拉為True時
 	  
@@ -240,7 +258,22 @@ FB.api('/me/albums?fields=id,name', function(response) {
      }
 
       // console.log(e);
+ 	function move_pic(){
+      frame=false;
+      word=false;
+      pic=true;
+    }
+    function move_frame(){
+    	frame=true;
+    	word=false;
+        pic=false;
+    }
 
+    function move_word(){
+    	frame=false;
+    	word=true;
+      pic=false;
+    }
 
 	// 抓取滑鼠移動的event
     $("#canvas").mousedown(function(e){handleMouseDown(e);});
