@@ -152,9 +152,9 @@ FB.api('/me/albums?fields=id,name', function(response) {
 	var canMouseY=0;
 
 	var selectIMG;
-	var frame=false;
-    var word=false;
-    var pic=true;
+	// var frame=false;
+ //    var word=false;
+ //    var pic=true;
 
     
 
@@ -181,7 +181,7 @@ FB.api('/me/albums?fields=id,name', function(response) {
 
 	var img3 = new Image();//新增圖像3
 	img3.src = "img/typography.png"//圖像路徑
-	var canvasImage3 = new canvasImage(0, 0, img3);
+	var canvasImage3 = new canvasImage(270, 300, img3);
 
 
 
@@ -252,28 +252,28 @@ FB.api('/me/albums?fields=id,name', function(response) {
 					ctx.fillStyle = "black"; //字體顏色
 					ctx.font='20px "微軟正黑體"'; //字體大小和字形
 					ctx.fillText(inputedText, 270+60,300+50/*canMouseX-1/2,canMouseY-30/2*/); //字體也可以依據滑鼠游標移動，所輸入的值可自行調整，若不想移動輸入的字體，可以把它改成（inputedText,0,0)X Y軸 0，0的位置
-
+					
 		      	}
 	     }
      }
 
       // console.log(e);
- 	function move_pic(){
-      frame=false;
-      word=false;
-      pic=true;
-    }
-    function move_frame(){
-    	frame=true;
-    	word=false;
-        pic=false;
-    }
+ 	// function move_pic(){
+  //     frame=false;
+  //     word=false;
+  //     pic=true;
+  //   }
+  //   function move_frame(){
+  //   	frame=true;
+  //   	word=false;
+  //       pic=false;
+  //   }
 
-    function move_word(){
-    	frame=false;
-    	word=true;
-      pic=false;
-    }
+  //   function move_word(){
+  //   	frame=false;
+  //   	word=true;
+  //     pic=false;
+  //   }
 
 	// 抓取滑鼠移動的event
     $("#canvas").mousedown(function(e){handleMouseDown(e);});
@@ -305,6 +305,7 @@ function photoClick(id) {
 			canvas.height = 500;
 			console.log(selectIMG.height)
 			console.log(selectIMG.width)
+			var canvasImage = new canvasImage(0, 0, selectIMG);
 
 			ctx.drawImage(selectIMG,0,0);//從XY軸0，0值開始畫如selectIMG
 			ctx.drawImage(img2,0,0); //劃入img2
@@ -346,14 +347,6 @@ function photoClick(id) {
 			);
 
 };
-
-
-// $('#album').change(function() {
-//     var val = $("#album option:selected").text();
-//     console.log(val)
-//     alert(val);
-// });
-
 
 
 $('#album').change(function() {
