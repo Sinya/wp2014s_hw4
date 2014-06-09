@@ -169,16 +169,16 @@ function img(x, y, w, h, src) {
 }
 
 
-// Draws this shape to a given context
+// Draws this img to a given context
 img.prototype.draw = function(ctx) {
   ctx.fillStyle = this.fill;
   ctx.fillRect(this.x, this.y, this.w, this.h);
 }
 
-// Determine if a point is inside the shape's bounds
+// Determine if a point is inside the img's bounds
 img.prototype.contains = function(mx, my) {
   // All we have to do is make sure the Mouse X,Y fall in the area between
-  // the shape's X and (X + Height) and its Y and (Y + Height)
+  // the img's X and (X + Height) and its Y and (Y + Height)
   return  (this.x <= mx) && (this.x + this.w >= mx) &&
           (this.y <= my) && (this.y + this.h >= my);
 }
@@ -208,7 +208,7 @@ function CanvasState(canvas) {
   // **** Keep track of state! ****
   
   this.valid = false; // when set to false, the canvas will redraw everything
-  this.shapes = [];  // the collection of things to be drawn
+  this.imgs = [];  // the collection of things to be drawn
   this.dragging = false; // Keep track of when we are dragging
   // the current selected object. In the future we could turn this into an array for multiple selection
   this.selection = null;
@@ -265,10 +265,10 @@ function CanvasState(canvas) {
   canvas.addEventListener('mouseup', function(e) {
     myState.dragging = false;
   }, true);
-  // double click for making new shapes
+  // double click for making new imgs
   // canvas.addEventListener('dblclick', function(e) {
   //   var mouse = myState.getMouse(e);
-  //   myState.addShape(new Shape(mouse.x - 10, mouse.y - 10, 20, 20, 'rgba(0,255,0,.6)'));
+  //   myState.addimg(new img(mouse.x - 10, mouse.y - 10, 20, 20, 'rgba(0,255,0,.6)'));
   // }, true);
   
   // **** Options! ****
@@ -279,8 +279,8 @@ function CanvasState(canvas) {
   setInterval(function() { myState.draw(); }, myState.interval);
 }
 
-CanvasState.prototype.addShape = function(shape) {
-  this.shapes.push(shape);
+CanvasState.prototype.addimg = function(img) {
+  this.imgs.push(img);
   this.valid = false;
 }
 
@@ -300,18 +300,18 @@ CanvasState.prototype.draw = function() {
     
     // ** Add stuff you want drawn in the background all the time here **
     
-    // draw all shapes
-    var l = shapes.length;
+    // draw all imgs
+    var l = imgs.length;
     for (var i = 0; i < l; i++) {
-      var shape = shapes[i];
+      var img = imgs[i];
       // We can skip the drawing of elements that have moved off the screen:
-      if (shape.x > this.width || shape.y > this.height ||
-          shape.x + shape.w < 0 || shape.y + shape.h < 0) continue;
-      shapes[i].draw(ctx);
+      if (img.x > this.width || img.y > this.height ||
+          img.x + img.w < 0 || img.y + img.h < 0) continue;
+      imgs[i].draw(ctx);
     }
     
     // draw selection
-    // right now this is just a stroke along the edge of the selected Shape
+    // right now this is just a stroke along the edge of the selected img
     if (this.selection != null) {
       ctx.strokeStyle = this.selectionColor;
       ctx.lineWidth = this.selectionWidth;
@@ -356,11 +356,11 @@ CanvasState.prototype.getMouse = function(e) {
 //init();
 function init() {
   var s = new CanvasState(document.getElementById('canvas'));
-  s.addShape(new Shape(40,40,50,50)); // The default is gray
-  s.addShape(new Shape(60,140,40,60, 'https://www.facebook.com/photo.php?fbid=614210118675707&set=t.1679244533&type=1&theater'));
+  s.addimg(new img(40,40,50,50)); // The default is gray
+  s.addimg(new img(60,140,40,60, 'https://www.facebook.com/photo.php?fbid=614210118675707&set=t.1679244533&type=1&theater'));
   // Lets make some partially transparent
-  s.addShape(new Shape(80,150,60,30, 'https://www.facebook.com/photo.php?fbid=614210118675707&set=t.1679244533&type=1&theater'));
-  s.addShape(new Shape(125,80,30,80, 'https://www.facebook.com/photo.php?fbid=614210118675707&set=t.1679244533&type=1&theater'));
+  s.addimg(new img(80,150,60,30, 'https://www.facebook.com/photo.php?fbid=614210118675707&set=t.1679244533&type=1&theater'));
+  s.addimg(new img(125,80,30,80, 'https://www.facebook.com/photo.php?fbid=614210118675707&set=t.1679244533&type=1&theater'));
 }
 
 // Now go make something amazing!
