@@ -168,7 +168,9 @@ FB.api('/me/albums?fields=id,name', function(response) {
 			console.log("=====")
 
 				if (selectIMG != undefined) {
-		  		ctx.drawImage(selectIMG,canMouseX-selectIMG.width/2,canMouseY-selectIMG.height/2,selectIMG.width,selectIMG.height);//從XY軸0，0值開始畫如profileimg
+				s.addShape(new Shape(canMouseX-selectIMG.width/2,canMouseY-selectIMG.height/2,selectIMG.width,selectIMG.height 'rgba(245, 222, 179, .7)' , selectIMG.src));
+
+		  		// ctx.drawImage(selectIMG,canMouseX-selectIMG.width/2,canMouseY-selectIMG.height/2,selectIMG.width,selectIMG.height);//從XY軸0，0值開始畫如profileimg
 		     	}
 
 		    ctx.drawImage(img3,270,300);
@@ -352,7 +354,8 @@ jQuery(document).ready(function() {
             ctx.clearRect(0,0,canvasWidth,canvasHeight); //移除canvas起始的內容
             ctx.drawImage(img2,0,0); //劃入img2
 
-            ctx.drawImage(selectIMG,canMouseX-selectIMG.width/2,canMouseY-selectIMG.height/2,size/100*selectIMG.width,size/100*selectIMG.height);//從XY軸0，0值開始畫如selectIMG
+            s.addShape(new Shape(canMouseX-selectIMG.width/2,canMouseY-selectIMG.height/2,size/100*selectIMG.width,size/100*selectIMG.height 'rgba(245, 222, 179, .7)' , selectIMG.src));
+            // ctx.drawImage(selectIMG,canMouseX-selectIMG.width/2,canMouseY-selectIMG.height/2,size/100*selectIMG.width,size/100*selectIMG.height);//從XY軸0，0值開始畫如selectIMG
 			
 			ctx.drawImage(img3,270,300);
 			var inputedText = $('#inputed').val();//抓取頁面inputed ID的內容

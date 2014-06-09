@@ -119,10 +119,10 @@ function CanvasState(canvas) {
     myState.dragging = false;
   }, true);
   // double click for making new shapes
-  canvas.addEventListener('dblclick', function(e) {
-    var mouse = myState.getMouse(e);
-    myState.addShape(new Shape(mouse.x - 10, mouse.y - 10, 20, 20, 'rgba(0,255,0,.6)'));
-  }, true);
+  // canvas.addEventListener('dblclick', function(e) {
+  //   var mouse = myState.getMouse(e);
+  //   myState.addShape(new Shape(mouse.x - 10, mouse.y - 10, 20, 20, 'rgba(0,255,0,.6)'));
+  // }, true);
   
   // **** Options! ****
   
@@ -162,7 +162,7 @@ CanvasState.prototype.draw = function() {
       // shapes[i].draw(ctx);
       var img = new Image();//新增圖像3
       img.src = shape.src; //圖像路徑（路徑自己設，且自己加入想要的圖層）
-          ctx.drawImage(img,0,0); //劃入img
+          ctx.drawImage(img,x,y,w,h); //劃入img
     }
     
     // draw selection
