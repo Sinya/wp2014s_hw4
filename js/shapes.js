@@ -182,6 +182,7 @@ CanvasState.prototype.draw = function() {
           shape.x + shape.w < 0 || shape.y + shape.h < 0) continue;
       // shapes[i].draw(ctx);
       var img = new Image();//新增圖像3
+      img.crossOrigin = "anonymous";
       img.src = shape.src; //圖像路徑（路徑自己設，且自己加入想要的圖層）
           ctx.drawImage(img,shape.x,shape.y,shape.w,shape.h); //劃入img
     }
