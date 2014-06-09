@@ -138,7 +138,7 @@ CanvasState.prototype.addShape = function(shape) {
 }
 
 CanvasState.prototype.deleteShape = function(src) {
-
+    console.log("hi");
    if (!this.valid) {
     var ctx = this.ctx;
     var shapes = this.shapes;

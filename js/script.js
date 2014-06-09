@@ -245,9 +245,7 @@ function photoClick(id) {
 
 			if (selectIMG != undefined) {
 				console.log(selectIMG.src);
-
 				s.deleteShape(selectIMG.src);
-
 			}
 	
 			$("#photoContainer strong").remove();
