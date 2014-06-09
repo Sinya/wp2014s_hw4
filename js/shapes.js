@@ -212,12 +212,12 @@ CanvasState.prototype.getMouse = function(e) {
 
 function init() {
   var s = new CanvasState(document.getElementById('canvas'));
-  s.addShape(new Shape(40,40,50,50)); // The default is gray
-  s.addShape(new Shape(60,140,40,60, 'lightskyblue','http://icons.iconarchive.com/icons/raindropmemory/red-little-shoes/256/Default-Setting-icon.png'));
-  // Lets make some partially transparent
-  s.addShape(new Shape(80,150,60,30, 'rgba(127, 255, 212, .5)', 'http://icons.iconarchive.com/icons/raindropmemory/red-little-shoes/256/Default-Setting-icon.png'));
-  s.addShape(new Shape(125,80,30,80, 'rgba(245, 222, 179, .7)' , 'http://icons.iconarchive.com/icons/raindropmemory/red-little-shoes/256/Default-Setting-icon.png'));
-  console.log("dada");
+  // s.addShape(new Shape(40,40,50,50)); // The default is gray
+  // s.addShape(new Shape(60,140,40,60, 'lightskyblue','http://icons.iconarchive.com/icons/raindropmemory/red-little-shoes/256/Default-Setting-icon.png'));
+  // // Lets make some partially transparent
+  // s.addShape(new Shape(80,150,60,30, 'rgba(127, 255, 212, .5)', 'http://icons.iconarchive.com/icons/raindropmemory/red-little-shoes/256/Default-Setting-icon.png'));
+  // s.addShape(new Shape(125,80,30,80, 'rgba(245, 222, 179, .7)' , 'http://icons.iconarchive.com/icons/raindropmemory/red-little-shoes/256/Default-Setting-icon.png'));
+  // console.log("dada");
 }
 
 // Now go make something amazing!

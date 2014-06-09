@@ -239,6 +239,8 @@ FB.api('/me/albums?fields=id,name', function(response) {
 	});
 
 function photoClick(id) {
+	  		var s = new CanvasState(document.getElementById('canvas'));
+
 	
 			$("#photoContainer strong").remove();
         	ctx.clearRect(0,0,canvasWidth,canvasHeight); //移除canvas起始的內容
@@ -252,8 +254,9 @@ function photoClick(id) {
 		
 			ctx.drawImage(img2,0,0); //劃入img2
 
-			// ctx.drawImage(selectIMG,0,0,selectIMG.width,selectIMG.height);//從XY軸0，0值開始畫如selectIMG
-			ctx.drawImage(selectIMG,0,0,selectIMG.width,selectIMG.height);
+			// ctx.drawImage(selectIMG,0,0,selectIMG.width,selectIMG.height);
+ 			s.addShape(new Shape(0,0,selectIMG.width,selectIMG.height, 'rgba(245, 222, 179, .7)' , selectIMG.img.src));
+
 			
 			ctx.drawImage(img3,270,300);
 			var inputedText = $('#inputed').val();//抓取頁面inputed ID的內容
@@ -265,7 +268,6 @@ function photoClick(id) {
 			    "/" + id + "/likes?summary=1",
 			    function (response) {
 			      if (response && !response.error) {
-			        /* handle the result */
 			        var like = response.summary;
 			        // console.log("l " + like.total_count); // 給抓的
     				$("#photoContainer").append("<strong>"+ like.total_count+ " Likes" + "</strong><br>" );
@@ -278,9 +280,7 @@ function photoClick(id) {
 			    "/"+ id ,
 			    function (response) {
 			      if (response && !response.error) {
-			        /* handle the result */
 			        var photo = response;
-			        // console.log(photo);
 			        // console.log("ct " + photo.created_time.substring(0,10)); // 給抓的
     				$("#photoContainer").append("<strong>"+ "Creat at " + photo.created_time.substring(0,10) + "</strong>");
 
