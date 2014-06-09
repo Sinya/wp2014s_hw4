@@ -137,6 +137,26 @@ CanvasState.prototype.addShape = function(shape) {
   this.valid = false;
 }
 
+CanvasState.prototype.deleteShape = function(src) {
+
+  // draw all shapes
+    var l = shapes.length;
+    for (var i = 0; i < l; i++) {
+      var shape = shapes[i];
+      // We can skip the drawing of elements that have moved off the screen:
+      if (shape.src == src) {
+   
+        shape.x = -1;
+        shape.y = -1;
+        shape.w = 0;
+        shape.h = 0;
+        shape.valid = true;
+      }
+      
+    }
+ 
+}
+
 CanvasState.prototype.clear = function() {
   this.ctx.clearRect(0, 0, this.width, this.height);
 }

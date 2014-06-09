@@ -155,6 +155,7 @@ FB.api('/me/albums?fields=id,name', function(response) {
 
 
 
+	var s = new CanvasState(document.getElementById('canvas'));
 
 
 // =================================================================================
@@ -241,8 +242,9 @@ FB.api('/me/albums?fields=id,name', function(response) {
 	});
 
 function photoClick(id) {
-	  		var s = new CanvasState(document.getElementById('canvas'));
 
+			if (selectIMG != undefined)
+				s.deleteShape(selectIMG.src);
 	
 			$("#photoContainer strong").remove();
         	ctx.clearRect(0,0,canvasWidth,canvasHeight); //移除canvas起始的內容
