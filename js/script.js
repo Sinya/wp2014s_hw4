@@ -243,8 +243,12 @@ FB.api('/me/albums?fields=id,name', function(response) {
 
 function photoClick(id) {
 
-			if (selectIMG != undefined)
+			if (selectIMG != undefined) {
+				console.log(selectIMG.src);
+
 				s.deleteShape(selectIMG.src);
+
+			}
 	
 			$("#photoContainer strong").remove();
         	ctx.clearRect(0,0,canvasWidth,canvasHeight); //移除canvas起始的內容
@@ -255,7 +259,8 @@ function photoClick(id) {
 
 			// canvas.width = 540;//設定canvas的大小需符合selectIMG的大小
 			// canvas.height = 500;
-		
+			s.deleteShape(selectIMG.src);
+
 			ctx.drawImage(img2,0,0); //劃入img2
 
 			// ctx.drawImage(selectIMG,0,0,selectIMG.width,selectIMG.height);
