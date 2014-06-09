@@ -9,7 +9,6 @@ FB.init({
     version: 'v2.0'
     });
 
-
 FB.getLoginStatus(function(response) {
   if (response.status === 'connected') {
     //呼叫api把圖片放到#preview IMG tag 內
@@ -28,15 +27,11 @@ FB.getLoginStatus(function(response) {
                          console.log(response)
                     });
 
-
                     // FB.ui({
                     //     method: 'share',
                     //     href: 'http://sinya.github.io/wp2014s_hw2/index.html',
                     // }, function (response) {});
 					
-					
-
-
                     // FB.ui({
                     //     method: 'send',
                     //     link: 'http://sinya.github.io/wp2014s_hw2/index.html',
@@ -54,8 +49,7 @@ FB.getLoginStatus(function(response) {
 						$('body').append(str);
 						console.log(response)
 
-					});
-		
+					});	
 					
 					// FB.api('/me/photos', 'post', {
 					// 	name:"test",
@@ -70,8 +64,6 @@ FB.getLoginStatus(function(response) {
 					// 	}
 					// });    
 
-
-
   } else if (response.status === 'not_authorized') {
     //要求使用者登入，索取publish_actions權限
     				console.log("this user is not authorizied your apps");
@@ -84,7 +76,6 @@ FB.getLoginStatus(function(response) {
                     }, {
                         scope: 'user_about_me,email,user_location,user_photos,publish_actions,user_birthday,user_likes'
                     });
-
 	
   } else {
     //同樣要求使用者登入
@@ -101,32 +92,7 @@ FB.getLoginStatus(function(response) {
  });
 
 
-
 }; //<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<init end
-
-// holds all our rectangles
-var boxes = []; 
- 
-//Box object to hold data for all drawn rects
-function Box() {
-  this.x = 0;
-  this.y = 0;
-  this.w = 1; // default width and height?
-  this.h = 1;
-  this.fill = '#444444';
-}
- 
-//Initialize a new Box, add it, and invalidate the canvas
-function addRect(x, y, w, h, fill) {
-  var rect = new Box;
-  rect.x = x;
-  rect.y = y;
-  rect.w = w
-  rect.h = h;
-  rect.fill = fill;
-  boxes.push(rect);
-   
-}
 
 
 
@@ -179,102 +145,6 @@ FB.api('/me/albums?fields=id,name', function(response) {
     var word=false;
     var pic=true;
 
-    
-
- //起始畫面
-
-	// add an orange rectangle
-	addRect(200, 200, 40, 40, '#FFC02B');
-	 
-	// add a smaller blue rectangle
-	addRect(25, 90, 25, 25, '#2BB8FF');
-	// While draw is called as often as the INTERVAL variable demands,
-	// It only ever does something if the canvas gets invalidated by our code
-	function draw() {
-	  if (canvasValid == false) {
-	    clear(ctx);
-	 
-	    // Add stuff you want drawn in the background all the time here
-	 
-	    // draw all boxes
-	    var l = boxes.length;
-	    for (var i = 0; i < l; i++) {
-	        drawshape(ctx, boxes[i], boxes[i].fill);
-	    }
-	 
-	    // draw selection
-	    // right now this is just a stroke along the edge of the selected box
-	    if (mySel != null) {
-	      ctx.strokeStyle = mySelColor;
-	      ctx.lineWidth = mySelWidth;
-	      ctx.strokeRect(mySel.x,mySel.y,mySel.w,mySel.h);
-	    }
-	 
-	    // Add stuff you want drawn on top all the time here
-	 
-	 
-	    canvasValid = true;
-	  }
-	}
-
-	// Happens when the mouse is clicked in the canvas
-	function myDown(e){
-	  getMouse(e);
-	  clear(gctx); // clear the ghost canvas from its last use
-	 
-	  // run through all the boxes
-	  var l = boxes.length;
-	  for (var i = l-1; i >= 0; i--) {
-	    // draw shape onto ghost context
-	    drawshape(gctx, boxes[i], 'black');
-	 
-	    // get image data at the mouse x,y pixel
-	    var imageData = gctx.getImageData(mx, my, 1, 1);
-	    var index = (mx + my * imageData.width) * 4;
-	 
-	    // if the mouse pixel exists, select and break
-	    if (imageData.data[3] > 0) {
-	      mySel = boxes[i];
-	      offsetx = mx - mySel.x;
-	      offsety = my - mySel.y;
-	      mySel.x = mx - offsetx;
-	      mySel.y = my - offsety;
-	      isDrag = true;
-	      canvas.onmousemove = myMove;
-	       
-	      clear(gctx);
-	      return;
-	    }
-	 
-	  }
-	  // havent returned means we have selected nothing
-	  mySel = null;
-	  // clear the ghost canvas for next time
-	  clear(gctx);
-	  // invalidate because we might need the selection border to disappear
-	   
-	}
-
-		// Happens when the mouse is moving inside the canvas
-	function myMove(e){
-	  if (isDrag){
-	    getMouse(e);
-	 
-	    mySel.x = mx - offsetx;
-	    mySel.y = my - offsety;   
-	 
-	    // something is changing position so we better invalidate the canvas!
-	     
-	  }
-	}
-	 
-	function myUp(){
-	  isDrag = false;
-	  canvas.onmousemove = null;
-	}
-
-
-
 	var ctx = document.getElementById('canvas').getContext('2d'); //宣告變數找到頁面的canvas標籤的2d內容
 	ctx.font='20px "Arial"'; //設定字體與大小
 	ctx.fillText("Click here to start fill with Facebook Profile Picture", 40, 270); //設定預設的開始畫面
@@ -307,7 +177,6 @@ FB.api('/me/albums?fields=id,name', function(response) {
 	  		// ctx.drawImage(img2,0,0); //劃入img2
 
 	});
-
 
 	// $("#canvas").mouseover(function() {
 
@@ -353,23 +222,19 @@ FB.api('/me/albums?fields=id,name', function(response) {
 	     }
      }
 
-
 	// 抓取滑鼠移動的event
     $("#canvas").mousedown(function(e){handleMouseDown(e);});
     $("#canvas").mousemove(function(e){handleMouseMove(e);});
     $("#canvas").mouseup(function(e){handleMouseUp(e);});
     $("#canvas").mouseout(function(e){handleMouseOut(e);});
 
-	
 	$("#inputed").mouseover(function() {
 	ctx.drawImage(img3,270,300);
 	var inputedText = $('#inputed').val();//抓取頁面inputed ID的內容
 	ctx.fillStyle = "black"; //字體顏色
 	ctx.font='20px "微軟正黑體"'; //字體大小和字形
 	ctx.fillText(inputedText, 270+60,300+50/*canMouseX-1/2,canMouseY-30/2*/); //字體也可以依據滑鼠游標移動，所輸入的值可自行調整，若不想移動輸入的字體，可以把它改成（inputedText,0,0)X Y軸 0，0的位置
-
 	});
-
 
 function photoClick(id) {
 	
@@ -382,9 +247,7 @@ function photoClick(id) {
 
 			// canvas.width = 540;//設定canvas的大小需符合selectIMG的大小
 			// canvas.height = 500;
-			// console.log(selectIMG.height)
-			// console.log(selectIMG.width)
-
+		
 			ctx.drawImage(img2,0,0); //劃入img2
 
 			// ctx.drawImage(selectIMG,0,0,selectIMG.width,selectIMG.height);//從XY軸0，0值開始畫如selectIMG
@@ -395,8 +258,6 @@ function photoClick(id) {
 			ctx.fillStyle = "black"; //字體顏色
 			ctx.font='20px "微軟正黑體"'; //字體大小和字形
 			ctx.fillText(inputedText, 270+60,300+50/*canMouseX-1/2,canMouseY-30/2*/); //字體也可以依據滑鼠游標移動，所輸入的值可自行調整，若不想移動輸入的字體，可以把它改成（inputedText,0,0)X Y軸 0，0的位置
-
-
 
 			FB.api(
 			    "/" + id + "/likes?summary=1",
@@ -410,7 +271,6 @@ function photoClick(id) {
 			      }
 			    }
 			);
-
 
 			FB.api(
 			    "/"+ id ,
@@ -442,13 +302,6 @@ $('#album').change(function() {
 	      if (response && !response.error) {
 				for (var i = 0; i < response.data.length; i++) {
 					    var album = response.data[i];
-
-					    console.log("=====")
-				   	  	console.log(album.name)
-				   	  	console.log(val)
-					    console.log("=====")
-
-
 				    // var album = response.data[i];
 				   	  if (album.name == val) {
 				   	  	console.log(album.name);
@@ -476,7 +329,6 @@ $('#album').change(function() {
 	    }
 	);
 
-
 });
 
 jQuery(document).ready(function() {
@@ -487,7 +339,7 @@ jQuery(document).ready(function() {
         
     jQuery( "#slider" ).slider({
         step: 5,
-        min: 50,
+        min: 10,
         max: 200,
         value: 100,
         slide: function(event, ui) {
@@ -523,10 +375,7 @@ function getMyUrl() {
 			ctx.fillStyle = "black"; //字體顏色
 			ctx.font='20px "微軟正黑體"'; //字體大小和字形
 			ctx.fillText(inputedText, 270+60,300+50/*canMouseX-1/2,canMouseY-30/2*/); //字體也可以依據滑鼠游標移動，所輸入的值可自行調整，若不想移動輸入的字體，可以把它改成（inputedText,0,0)X Y軸 0，0的位置
-
-
 	     }
-
 }
 
 // Post a BASE64 Encoded PNG Image to facebook，以下程式為把照片po到facebook的方法，基本上這樣就可以不用動了，
@@ -570,8 +419,6 @@ function PostImageToFacebook(authToken) {
 }
 
 
-
-
 // Convert a data URI to blob把影像載入轉換函數
 function dataURItoBlob(dataURI) {
     var byteString = atob(dataURI.split(',')[1]);
@@ -584,7 +431,4 @@ function dataURItoBlob(dataURI) {
         type: 'image/png'
     });
 }
-
-
-
 
