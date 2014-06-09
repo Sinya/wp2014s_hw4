@@ -125,7 +125,7 @@ function addRect(x, y, w, h, fill) {
   rect.h = h;
   rect.fill = fill;
   boxes.push(rect);
-  invalidate();
+   
 }
 
 
@@ -241,7 +241,7 @@ FB.api('/me/albums?fields=id,name', function(response) {
 	      mySel.y = my - offsety;
 	      isDrag = true;
 	      canvas.onmousemove = myMove;
-	      invalidate();
+	       
 	      clear(gctx);
 	      return;
 	    }
@@ -252,7 +252,7 @@ FB.api('/me/albums?fields=id,name', function(response) {
 	  // clear the ghost canvas for next time
 	  clear(gctx);
 	  // invalidate because we might need the selection border to disappear
-	  invalidate();
+	   
 	}
 
 		// Happens when the mouse is moving inside the canvas
@@ -264,7 +264,7 @@ FB.api('/me/albums?fields=id,name', function(response) {
 	    mySel.y = my - offsety;   
 	 
 	    // something is changing position so we better invalidate the canvas!
-	    invalidate();
+	     
 	  }
 	}
 	 
