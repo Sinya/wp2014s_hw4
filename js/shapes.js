@@ -9,7 +9,7 @@
 
 // Constructor for Shape objects to hold data for all drawn objects.
 // For now they will just be defined as rectangles.
-function Shape(x, y, w, h, fill, src) {
+function Shape(x, y, src, w, h) {
   // This is a very simple and unsafe constructor. All we're doing is checking if the values exist.
   // "x || 0" just means "if there is a value for x, use that. Otherwise use 0."
   // But we aren't checking anything else! We could put "Lalala" for the value of x 
@@ -17,7 +17,6 @@ function Shape(x, y, w, h, fill, src) {
   this.y = y || 0;
   this.w = w || 1;
   this.h = h || 1;
-  this.fill = fill || '#AAAAAA';
   this.src = src || 'http://www.techrepublic.com/1.8.2/bundles/techrepubliccore/images/icons/standard/icon-user-default.png';
 }
 
@@ -154,6 +153,8 @@ CanvasState.prototype.deleteShape = function(src) {
         shape.w = 0;
         shape.h = 0;
         shape.valid = true;
+        shape.shapes.pop(shape);
+
       }
       
     }
