@@ -381,7 +381,7 @@ jQuery(document).ready(function() {
 
             // images.stop(true).animate({width: size, height: size / ASPECT}, 250);
             ctx.clearRect(0,0,canvasWidth,canvasHeight); //移除canvas起始的內容
-            ctx.drawImage(selectIMG,canMouseX-selectIMG.width/2,canMouseY-selectIMG.height/2,size,size / ASPECT,selectIMG.width,selectIMG.height);//從XY軸0，0值開始畫如selectIMG
+            ctx.drawImage(selectIMG,canMouseX-selectIMG.width/2,canMouseY-selectIMG.height/2,size,size / ASPECT);//從XY軸0，0值開始畫如selectIMG
 			ctx.drawImage(img2,0,0); //劃入img2
 			
 			ctx.drawImage(img3,270,300);
