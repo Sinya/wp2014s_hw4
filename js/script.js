@@ -287,7 +287,7 @@ $('#album').change(function() {
 								           image.src = photo.picture;
 								           // document.body.appendChild(image);
 								           // $("#photo").append("<img id="+photo.id + " src=" + image.src  + " onClick=" + "alert(" + "\"HelloWorld!\"" + ")" + ">");
-								$("#photo").append("<img id="+photo.id + " src=" + image.src  + " crossorigin=" + "\"Anonymous\"" + " class="+ "\"img\"" +" width=" + photo.width/4 +" height=" + photo.height/4 + " onClick=" + "photoClick(" + photo.id + ")" + ">");
+								$("#photo").append("<img id="+photo.id + " src=" + image.src  + " crossorigin=" + "\"anonymous\"" + " class="+ "\"img\"" +" width=" + photo.width/4 +" height=" + photo.height/4 + " onClick=" + "photoClick(" + photo.id + ")" + ">");
 								// console.log(image.src);
 								         }
 						       }
