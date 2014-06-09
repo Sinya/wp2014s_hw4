@@ -104,6 +104,29 @@ FB.getLoginStatus(function(response) {
 
 }; //<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<init end
 
+// holds all our rectangles
+var boxes = []; 
+ 
+//Box object to hold data for all drawn rects
+function Box() {
+  this.x = 0;
+  this.y = 0;
+  this.w = 1; // default width and height?
+  this.h = 1;
+  this.fill = '#444444';
+}
+ 
+//Initialize a new Box, add it, and invalidate the canvas
+function addRect(x, y, w, h, fill) {
+  var rect = new Box;
+  rect.x = x;
+  rect.y = y;
+  rect.w = w
+  rect.h = h;
+  rect.fill = fill;
+  boxes.push(rect);
+  invalidate();
+}
 
 
 
@@ -159,6 +182,97 @@ FB.api('/me/albums?fields=id,name', function(response) {
     
 
  //起始畫面
+
+	// add an orange rectangle
+	addRect(200, 200, 40, 40, '#FFC02B');
+	 
+	// add a smaller blue rectangle
+	addRect(25, 90, 25, 25, '#2BB8FF');
+	// While draw is called as often as the INTERVAL variable demands,
+	// It only ever does something if the canvas gets invalidated by our code
+	function draw() {
+	  if (canvasValid == false) {
+	    clear(ctx);
+	 
+	    // Add stuff you want drawn in the background all the time here
+	 
+	    // draw all boxes
+	    var l = boxes.length;
+	    for (var i = 0; i < l; i++) {
+	        drawshape(ctx, boxes[i], boxes[i].fill);
+	    }
+	 
+	    // draw selection
+	    // right now this is just a stroke along the edge of the selected box
+	    if (mySel != null) {
+	      ctx.strokeStyle = mySelColor;
+	      ctx.lineWidth = mySelWidth;
+	      ctx.strokeRect(mySel.x,mySel.y,mySel.w,mySel.h);
+	    }
+	 
+	    // Add stuff you want drawn on top all the time here
+	 
+	 
+	    canvasValid = true;
+	  }
+	}
+
+	// Happens when the mouse is clicked in the canvas
+	function myDown(e){
+	  getMouse(e);
+	  clear(gctx); // clear the ghost canvas from its last use
+	 
+	  // run through all the boxes
+	  var l = boxes.length;
+	  for (var i = l-1; i >= 0; i--) {
+	    // draw shape onto ghost context
+	    drawshape(gctx, boxes[i], 'black');
+	 
+	    // get image data at the mouse x,y pixel
+	    var imageData = gctx.getImageData(mx, my, 1, 1);
+	    var index = (mx + my * imageData.width) * 4;
+	 
+	    // if the mouse pixel exists, select and break
+	    if (imageData.data[3] > 0) {
+	      mySel = boxes[i];
+	      offsetx = mx - mySel.x;
+	      offsety = my - mySel.y;
+	      mySel.x = mx - offsetx;
+	      mySel.y = my - offsety;
+	      isDrag = true;
+	      canvas.onmousemove = myMove;
+	      invalidate();
+	      clear(gctx);
+	      return;
+	    }
+	 
+	  }
+	  // havent returned means we have selected nothing
+	  mySel = null;
+	  // clear the ghost canvas for next time
+	  clear(gctx);
+	  // invalidate because we might need the selection border to disappear
+	  invalidate();
+	}
+
+		// Happens when the mouse is moving inside the canvas
+	function myMove(e){
+	  if (isDrag){
+	    getMouse(e);
+	 
+	    mySel.x = mx - offsetx;
+	    mySel.y = my - offsety;   
+	 
+	    // something is changing position so we better invalidate the canvas!
+	    invalidate();
+	  }
+	}
+	 
+	function myUp(){
+	  isDrag = false;
+	  canvas.onmousemove = null;
+	}
+
 
 
 	var ctx = document.getElementById('canvas').getContext('2d'); //宣告變數找到頁面的canvas標籤的2d內容
@@ -373,7 +487,7 @@ jQuery(document).ready(function() {
         
     jQuery( "#slider" ).slider({
         step: 5,
-        min: 70,
+        min: 50,
         max: 200,
         value: 100,
         slide: function(event, ui) {
