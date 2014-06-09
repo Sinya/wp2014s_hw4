@@ -189,7 +189,7 @@ FB.api('/me/albums?fields=id,name', function(response) {
 	});
 
 	
-	$("#inputed").mouseover(function() {
+	// $("#inputed").mouseover(function() {
 	// s.addShape(new Shape(270,300,img3.src,70,140));
 	var inputedText = $('#inputed').val();//抓取頁面inputed ID的內容
 	ctx.fillStyle = "black"; //字體顏色
@@ -197,7 +197,7 @@ FB.api('/me/albums?fields=id,name', function(response) {
 		console.log(inputedText);
 
 	ctx.fillText(inputedText, 270+60,300+50/*canMouseX-1/2,canMouseY-30/2*/); //字體也可以依據滑鼠游標移動，所輸入的值可自行調整，若不想移動輸入的字體，可以把它改成（inputedText,0,0)X Y軸 0，0的位置
-	});
+	// });
 
 function photoClick(id) {
 
@@ -333,7 +333,7 @@ jQuery(document).ready(function() {
             s.addShape(new Shape(canMouseX-selectIMG.width/2,canMouseY-selectIMG.height/2,selectIMG.src,size/100*selectIMG.width,size/100*selectIMG.height ));
             // ctx.drawImage(selectIMG,canMouseX-selectIMG.width/2,canMouseY-selectIMG.height/2,size/100*selectIMG.width,size/100*selectIMG.height);//從XY軸0，0值開始畫如selectIMG
 			
-			s.addShape(new Shape(270,300,img3.src,70,140));
+			s.addShape(new Shape(270,300,img3.src,100,80));
 			var inputedText = $('#inputed').val();//抓取頁面inputed ID的內容
 			ctx.fillStyle = "black"; //字體顏色
 			ctx.font='20px "微軟正黑體"'; //字體大小和字形
