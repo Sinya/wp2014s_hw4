@@ -139,6 +139,11 @@ CanvasState.prototype.addShape = function(shape) {
 
 CanvasState.prototype.deleteShape = function(src) {
 
+   if (!this.valid) {
+    var ctx = this.ctx;
+    var shapes = this.shapes;
+    this.clear();
+
   // draw all shapes
     var l = shapes.length;
     for (var i = 0; i < l; i++) {
@@ -154,6 +159,7 @@ CanvasState.prototype.deleteShape = function(src) {
       }
       
     }
+  }
  
 }
 
