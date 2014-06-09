@@ -202,6 +202,8 @@ function photoClick(id) {
 			if (theFirst == false) {
 				console.log(selectIMG.src);
 				s.deleteShape(selectIMG.src);
+				s.deleteShape(img2.src);
+				s.deleteShape(img3.src);
 			} //@@
 	
 			theFirst = false;
