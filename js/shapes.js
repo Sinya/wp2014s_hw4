@@ -18,8 +18,7 @@ function Shape(x, y, w, h, fill, src) {
   this.w = w || 1;
   this.h = h || 1;
   this.fill = fill || '#AAAAAA';
-  var img = new Image();//新增圖像3
-  img.src = src || 'http://www.techrepublic.com/1.8.2/bundles/techrepubliccore/images/icons/standard/icon-user-default.png';
+  this.src = src || 'http://www.techrepublic.com/1.8.2/bundles/techrepubliccore/images/icons/standard/icon-user-default.png';
 }
 
 // Draws this shape to a given context
@@ -161,6 +160,9 @@ CanvasState.prototype.draw = function() {
       if (shape.x > this.width || shape.y > this.height ||
           shape.x + shape.w < 0 || shape.y + shape.h < 0) continue;
       // shapes[i].draw(ctx);
+      var img = new Image();//新增圖像3
+      img.src = shape.src; //圖像路徑（路徑自己設，且自己加入想要的圖層）
+
           ctx.drawImage(shape.img,0,0); //劃入img
 
     }
