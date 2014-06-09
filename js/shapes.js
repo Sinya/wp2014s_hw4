@@ -9,7 +9,7 @@
 
 // Constructor for Shape objects to hold data for all drawn objects.
 // For now they will just be defined as rectangles.
-function Shape(x, y, w, h, fill) {
+function Shape(x, y, w, h, fill, src) {
   // This is a very simple and unsafe constructor. All we're doing is checking if the values exist.
   // "x || 0" just means "if there is a value for x, use that. Otherwise use 0."
   // But we aren't checking anything else! We could put "Lalala" for the value of x 
@@ -18,6 +18,8 @@ function Shape(x, y, w, h, fill) {
   this.w = w || 1;
   this.h = h || 1;
   this.fill = fill || '#AAAAAA';
+  var img = new Image();//新增圖像3
+  img.src = src || 'http://www.techrepublic.com/1.8.2/bundles/techrepubliccore/images/icons/standard/icon-user-default.png';
 }
 
 // Draws this shape to a given context
@@ -158,7 +160,9 @@ CanvasState.prototype.draw = function() {
       // We can skip the drawing of elements that have moved off the screen:
       if (shape.x > this.width || shape.y > this.height ||
           shape.x + shape.w < 0 || shape.y + shape.h < 0) continue;
-      shapes[i].draw(ctx);
+      // shapes[i].draw(ctx);
+          ctx.drawImage(img,0,0); //劃入img2
+
     }
     
     // draw selection
@@ -209,10 +213,10 @@ CanvasState.prototype.getMouse = function(e) {
 function init() {
   var s = new CanvasState(document.getElementById('canvas'));
   s.addShape(new Shape(40,40,50,50)); // The default is gray
-  s.addShape(new Shape(60,140,40,60, 'lightskyblue'));
+  s.addShape(new Shape(60,140,40,60, 'lightskyblue','http://icons.iconarchive.com/icons/raindropmemory/red-little-shoes/256/Default-Setting-icon.png'));
   // Lets make some partially transparent
-  s.addShape(new Shape(80,150,60,30, 'rgba(127, 255, 212, .5)'));
-  s.addShape(new Shape(125,80,30,80, 'rgba(245, 222, 179, .7)'));
+  s.addShape(new Shape(80,150,60,30, 'rgba(127, 255, 212, .5)', 'http://icons.iconarchive.com/icons/raindropmemory/red-little-shoes/256/Default-Setting-icon.png'));
+  s.addShape(new Shape(125,80,30,80, 'rgba(245, 222, 179, .7)' , 'http://icons.iconarchive.com/icons/raindropmemory/red-little-shoes/256/Default-Setting-icon.png'));
   console.log("dada");
 }
 
