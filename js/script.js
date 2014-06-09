@@ -266,10 +266,10 @@ function photoClick(id) {
 			// canvas.width = selectIMG.width;//設定canvas的大小需符合selectIMG的大小
 			// canvas.height = selectIMG.height;
 
-			canvas.width = 540;//設定canvas的大小需符合selectIMG的大小
-			canvas.height = 500;
-			console.log(selectIMG.height)
-			console.log(selectIMG.width)
+			// canvas.width = 540;//設定canvas的大小需符合selectIMG的大小
+			// canvas.height = 500;
+			// console.log(selectIMG.height)
+			// console.log(selectIMG.width)
 
 			// ctx.drawImage(selectIMG,0,0);//從XY軸0，0值開始畫如selectIMG
 			ctx.drawImage(selectIMG,0,0,selectIMG.width,selectIMG.height);
