@@ -145,15 +145,12 @@ CanvasState.prototype.deleteShape = function(src) {
     for (var i = 0; i < l; i++) {
       var shape = shapes[i];
       // We can skip the drawing of elements that have moved off the screen:
-      if (shape.src == src) {
-        console.log("hihi");
-   
+      if (shape.src == src) {   
         shape.x = -1;
         shape.y = -1;
         shape.w = 0;
         shape.h = 0;
         shape.valid = true;
-        shape.shapes.pop(shape);
 
       }
       
