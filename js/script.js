@@ -177,7 +177,7 @@ FB.api('/me/albums?fields=id,name', function(response) {
 		  		// ctx.drawImage(selectIMG,canMouseX-selectIMG.width/2,canMouseY-selectIMG.height/2,selectIMG.width,selectIMG.height);//從XY軸0，0值開始畫如profileimg
 		     	}
 
-		    ctx.drawImage(img3,270,300);
+		    s.addShape(new Shape(270,300,img3.src,50,80));
 			var inputedText = $('#inputed').val();//抓取頁面inputed ID的內容
 			ctx.fillStyle = "black"; //字體顏色
 			ctx.font='20px "微軟正黑體"'; //字體大小和字形
@@ -188,7 +188,7 @@ FB.api('/me/albums?fields=id,name', function(response) {
 
 	
 	$("#inputed").mouseover(function() {
-	ctx.drawImage(img3,270,300);
+	s.addShape(new Shape(270,300,img3.src,50,80));
 	var inputedText = $('#inputed').val();//抓取頁面inputed ID的內容
 	ctx.fillStyle = "black"; //字體顏色
 	ctx.font='20px "微軟正黑體"'; //字體大小和字形
@@ -224,7 +224,8 @@ function photoClick(id) {
  			s.addShape(new Shape(0,0,selectIMG.src,selectIMG.width,selectIMG.height));
 
 			
-			ctx.drawImage(img3,270,300);
+			s.addShape(new Shape(270,300,img3.src,50,80));
+
 			var inputedText = $('#inputed').val();//抓取頁面inputed ID的內容
 			ctx.fillStyle = "black"; //字體顏色
 			ctx.font='20px "微軟正黑體"'; //字體大小和字形
@@ -323,7 +324,7 @@ jQuery(document).ready(function() {
             s.addShape(new Shape(canMouseX-selectIMG.width/2,canMouseY-selectIMG.height/2,selectIMG.src,size/100*selectIMG.width,size/100*selectIMG.height ));
             // ctx.drawImage(selectIMG,canMouseX-selectIMG.width/2,canMouseY-selectIMG.height/2,size/100*selectIMG.width,size/100*selectIMG.height);//從XY軸0，0值開始畫如selectIMG
 			
-			ctx.drawImage(img3,270,300);
+			s.addShape(new Shape(270,300,img3.src,50,80));
 			var inputedText = $('#inputed').val();//抓取頁面inputed ID的內容
 			ctx.fillStyle = "black"; //字體顏色
 			ctx.font='20px "微軟正黑體"'; //字體大小和字形
@@ -343,7 +344,7 @@ function getMyUrl() {
 			s.addShape(new Shape(0,0,img2.src,540,500));
 
 	  		s.addShape(new Shape(canMouseX-selectIMG.width/2,canMouseY-selectIMG.height/2,selectIMG.src,selectIMG.width,selectIMG.height)); //劃入img3，並根據你的滑鼠游標移動，你可以自行更換想要移動的圖層，數值會因XY軸向有所不同
-	     	ctx.drawImage(img3,270,300);
+	     	s.addShape(new Shape(270,300,img3.src,50,80));
 			var inputedText = $('#inputed').val();//抓取頁面inputed ID的內容
 			ctx.fillStyle = "black"; //字體顏色
 			ctx.font='20px "微軟正黑體"'; //字體大小和字形
