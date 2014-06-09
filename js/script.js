@@ -149,10 +149,14 @@ FB.api('/me/albums?fields=id,name', function(response) {
 	ctx.fillText("Click here to start fill with Facebook Profile Picture", 40, 270); //設定預設的開始畫面
     var img = new Image(); // 新增圖像1
     img.src = "img/overlay.png"; //圖像路徑（路徑自己設，且自己加入想要的圖層）
+	img.crossorigin = "anonymous";
 	var img2 = new Image(); //新增圖像2 
 	img2.src = "img/overlay1.png" //圖像路徑
+	img2.crossorigin = "anonymous";
 	var img3 = new Image();//新增圖像3
 	img3.src = "img/typography.png"//圖像路徑
+	img3.crossorigin = "anonymous";
+
 
 // =================================================================================
 
