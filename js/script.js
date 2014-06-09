@@ -271,7 +271,8 @@ function photoClick(id) {
 			console.log(selectIMG.height)
 			console.log(selectIMG.width)
 
-			ctx.drawImage(selectIMG,0,0);//從XY軸0，0值開始畫如selectIMG
+			// ctx.drawImage(selectIMG,0,0);//從XY軸0，0值開始畫如selectIMG
+			ctx.drawImage(selectIMG,0,0,selectIMG.width,selectIMG.height);
 			ctx.drawImage(img2,0,0); //劃入img2
 			
 			ctx.drawImage(img3,270,300);
