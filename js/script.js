@@ -179,7 +179,7 @@ FB.api('/me/albums?fields=id,name', function(response) {
     		ctx.drawImage(img2,0,0); //劃入img2
 	  	    ctx.clearRect(0,0,canvasWidth,canvasHeight); //移除canvas起始的內容
     		console.log(img2)
-	  		ctx.drawImage(img2,0,0); //劃入img2
+	  		// ctx.drawImage(img2,0,0); //劃入img2
 			console.log("=====")
 
 				if (selectIMG != undefined) {
@@ -191,6 +191,7 @@ FB.api('/me/albums?fields=id,name', function(response) {
 			ctx.fillStyle = "black"; //字體顏色
 			ctx.font='20px "微軟正黑體"'; //字體大小和字形
 			ctx.fillText(inputedText, 270+60,300+50/*canMouseX-1/2,canMouseY-30/2*/); //字體也可以依據滑鼠游標移動，所輸入的值可自行調整，若不想移動輸入的字體，可以把它改成（inputedText,0,0)X Y軸 0，0的位置
+	  		ctx.drawImage(img2,0,0); //劃入img2
 
 	});
 
@@ -290,7 +291,7 @@ function photoClick(id) {
 			        /* handle the result */
 			        var like = response.summary;
 			        console.log("l " + like.total_count); // 給抓的
-    				$("#photoContainer").append("<strong>"+ like.total_count+ "Likes" + "</strong>");
+    				$("#photoContainer").append("<strong>"+ like.total_count+ "Likes" + "</strong><br>" );
 
 			      }
 			    }
@@ -368,7 +369,7 @@ jQuery(document).ready(function() {
 
     // var images = jQuery('.thumb-wrapper img'); //caches the query when dom is ready
     var CELL_WIDTH = 150;
-    var ASPECT = 1.5;
+    var ASPECT = 1.1;
         
     jQuery( "#slider" ).slider({
         step: 5,
