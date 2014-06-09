@@ -213,6 +213,7 @@ function init() {
   // Lets make some partially transparent
   s.addShape(new Shape(80,150,60,30, 'rgba(127, 255, 212, .5)'));
   s.addShape(new Shape(125,80,30,80, 'rgba(245, 222, 179, .7)'));
+  console.log("dada");
 }
 
 // Now go make something amazing!
