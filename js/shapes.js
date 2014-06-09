@@ -162,9 +162,7 @@ CanvasState.prototype.draw = function() {
       // shapes[i].draw(ctx);
       var img = new Image();//新增圖像3
       img.src = shape.src; //圖像路徑（路徑自己設，且自己加入想要的圖層）
-
-          ctx.drawImage(shape.img,0,0); //劃入img
-
+          ctx.drawImage(img,0,0); //劃入img
     }
     
     // draw selection
