@@ -140,7 +140,7 @@ FB.api('/me/albums?fields=id,name', function(response) {
 	var frame=false;
     var word=false;
     var pic=true;
-    boolean theFirst=true;
+    var theFirst=true;
 
 	var ctx = document.getElementById('canvas').getContext('2d'); //宣告變數找到頁面的canvas標籤的2d內容
 	ctx.font='20px "Arial"'; //設定字體與大小
