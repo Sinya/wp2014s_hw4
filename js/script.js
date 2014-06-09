@@ -313,6 +313,8 @@ jQuery(document).ready(function() {
                var size = (CELL_WIDTH * ui.value / 100) ;
 
             // images.stop(true).animate({width: size, height: size / ASPECT}, 250);
+            s.deleteShape(selectIMG.src);
+
             ctx.clearRect(0,0,canvasWidth,canvasHeight); //移除canvas起始的內容
             // ctx.drawImage(img2,0,0); //劃入img2
             s.addShape(new Shape(0,0,img2.src));
