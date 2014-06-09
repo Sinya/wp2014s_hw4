@@ -140,7 +140,9 @@ FB.api('/me/albums?fields=id,name', function(response) {
 	var frame=false;
     var word=false;
     var pic=true;
-    var theFirst=true;
+    var Pcfirst=true;
+    var Sfirst=true;
+
 
 	var ctx = document.getElementById('canvas').getContext('2d'); //宣告變數找到頁面的canvas標籤的2d內容
 	ctx.font='20px "Arial"'; //設定字體與大小
@@ -199,16 +201,16 @@ FB.api('/me/albums?fields=id,name', function(response) {
 
 function photoClick(id) {
 
-			console.log(theFirst);
+			console.log(Pcfirst);
 
-			if (theFirst == false) {
+			if (Pcfirst == false) {
 				console.log(selectIMG.src);
 				s.deleteShape(selectIMG.src);
 				s.deleteShape(img2.src);
 				s.deleteShape(img3.src);
 			} //@@
 	
-			theFirst = false;
+			Pcfirst = false;
 
 			$("#photoContainer strong").remove();
         	ctx.clearRect(0,0,canvasWidth,canvasHeight); //移除canvas起始的內容
@@ -320,8 +322,11 @@ jQuery(document).ready(function() {
                var size = (CELL_WIDTH * ui.value / 100) ;
 
             // images.stop(true).animate({width: size, height: size / ASPECT}, 250);
-            s.deleteShape(selectIMG.src);
-
+          
+				s.deleteShape(selectIMG.src);
+				s.deleteShape(img2.src);
+				s.deleteShape(img3.src);
+	
             ctx.clearRect(0,0,canvasWidth,canvasHeight); //移除canvas起始的內容
             // ctx.drawImage(img2,0,0); //劃入img2
             s.addShape(new Shape(0,0,img2.src,540,500));
