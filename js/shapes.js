@@ -185,6 +185,12 @@ CanvasState.prototype.draw = function() {
       img.src = shape.src; //圖像路徑（路徑自己設，且自己加入想要的圖層）
           ctx.drawImage(img,shape.x,shape.y,shape.w,shape.h); //劃入img
     }
+
+    var inputedText = $('#inputed').val();//抓取頁面inputed ID的內容
+    ctx.fillStyle = "black"; //字體顏色
+    ctx.font='20px "微軟正黑體"'; //字體大小和字形
+    console.log(inputedText);
+    ctx.fillText(inputedText, canMouseX-1/2,canMouseY-30/2); 
     
     // draw selection
     // right now this is just a stroke along the edge of the selected Shape
