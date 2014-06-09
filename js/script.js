@@ -255,7 +255,7 @@ function photoClick(id) {
 			ctx.drawImage(img2,0,0); //劃入img2
 
 			// ctx.drawImage(selectIMG,0,0,selectIMG.width,selectIMG.height);
- 			s.addShape(new Shape(0,0,selectIMG.width,selectIMG.height, 'rgba(245, 222, 179, .7)' , selectIMG.img.src));
+ 			s.addShape(new Shape(0,0,selectIMG.width,selectIMG.height, 'rgba(245, 222, 179, .7)' , selectIMG.src));
 
 			
 			ctx.drawImage(img3,270,300);
