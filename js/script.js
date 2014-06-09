@@ -348,11 +348,12 @@ jQuery(document).ready(function() {
 function getMyUrl() {
 	var inputedText = $('#inputbg').val();//抓取頁面inputed ID的內容
 	img2.src = inputedText;
+	img2.crossorigin = "anonymous";
+
 	if (selectIMG != undefined) {
 	  	    ctx.clearRect(0,0,canvasWidth,canvasHeight); //移除canvas起始的內容
 			// ctx.drawImage(img2,0,0); //劃入img2
 			s.addShape(new Shape(0,0,img2.src,540,500));
-
 	  		s.addShape(new Shape(canMouseX-selectIMG.width/2,canMouseY-selectIMG.height/2,selectIMG.src,selectIMG.width,selectIMG.height)); //劃入img3，並根據你的滑鼠游標移動，你可以自行更換想要移動的圖層，數值會因XY軸向有所不同
 			s.addShape(new Shape(270,300,img3.src,100,80));
 			var inputedText = $('#inputed').val();//抓取頁面inputed ID的內容
