@@ -189,15 +189,26 @@ FB.api('/me/albums?fields=id,name', function(response) {
 	});
 
 	
-	// $("#inputed").mouseover(function() {
+	$("#inputed").mouseover(function() {
 	// s.addShape(new Shape(270,300,img3.src,70,140));
 	var inputedText = $('#inputed').val();//抓取頁面inputed ID的內容
 	ctx.fillStyle = "black"; //字體顏色
 	ctx.font='20px "微軟正黑體"'; //字體大小和字形
 		console.log(inputedText);
 
-	ctx.fillText(inputedText, 270+60,300+50/*canMouseX-1/2,canMouseY-30/2*/); //字體也可以依據滑鼠游標移動，所輸入的值可自行調整，若不想移動輸入的字體，可以把它改成（inputedText,0,0)X Y軸 0，0的位置
-	// });
+	ctx.fillText(inputedText, canMouseX-1/2,canMouseY-30/2); //字體也可以依據滑鼠游標移動，所輸入的值可自行調整，若不想移動輸入的字體，可以把它改成（inputedText,0,0)X Y軸 0，0的位置
+	});
+
+
+	$("#canvas").mouseover(function() {
+	// s.addShape(new Shape(270,300,img3.src,70,140));
+	var inputedText = $('#inputed').val();//抓取頁面inputed ID的內容
+	ctx.fillStyle = "black"; //字體顏色
+	ctx.font='20px "微軟正黑體"'; //字體大小和字形
+		console.log(inputedText);
+
+	ctx.fillText(inputedText, canMouseX-1/2,canMouseY-30/2); //字體也可以依據滑鼠游標移動，所輸入的值可自行調整，若不想移動輸入的字體，可以把它改成（inputedText,0,0)X Y軸 0，0的位置
+	});
 
 function photoClick(id) {
 
@@ -266,9 +277,7 @@ function photoClick(id) {
 
 $('#album').change(function() {
 	    var val = $("#album option:selected").text();
-	    // console.log(val)
-	    // alert(val);
-
+	   
 	$("#photo").empty();
 
 	FB.api(
