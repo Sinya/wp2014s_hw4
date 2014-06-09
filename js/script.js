@@ -117,11 +117,7 @@ FB.api('/me/albums?fields=id,name', function(response) {
   for (var i = 0; i < response.data.length; i++) {
     var album = response.data[i];
     // window.album = album;
-
-    console.log(album);
-
-    console.log(album.name);
-
+    // console.log(album);
     $("#album").append("<option id="+album.id + ">"+ album.name + "</option>");
 
 }});
@@ -165,7 +161,6 @@ FB.api('/me/albums?fields=id,name', function(response) {
 
 	$("#pattern").change(function() {
     var val = $("#pattern option:selected").text();
-    console.log(val)
     		img2.src = "img/" + val + ".png" ; //圖像路徑
 	  	    ctx.clearRect(0,0,canvasWidth,canvasHeight); //移除canvas起始的內容
     		console.log(img2)
@@ -272,8 +267,8 @@ function photoClick(id) {
 			      if (response && !response.error) {
 			        /* handle the result */
 			        var like = response.summary;
-			        console.log("l " + like.total_count); // 給抓的
-    				$("#photoContainer").append("<strong>"+ like.total_count+ "Likes" + "</strong><br>" );
+			        // console.log("l " + like.total_count); // 給抓的
+    				$("#photoContainer").append("<strong>"+ like.total_count+ " Likes" + "</strong><br>" );
 
 			      }
 			    }
@@ -285,8 +280,8 @@ function photoClick(id) {
 			      if (response && !response.error) {
 			        /* handle the result */
 			        var photo = response;
-			        console.log(photo);
-			        console.log("ct " + photo.created_time.substring(0,10)); // 給抓的
+			        // console.log(photo);
+			        // console.log("ct " + photo.created_time.substring(0,10)); // 給抓的
     				$("#photoContainer").append("<strong>"+ "Creat at " + photo.created_time.substring(0,10) + "</strong>");
 
 			      }
@@ -311,7 +306,7 @@ $('#album').change(function() {
 					    var album = response.data[i];
 				    // var album = response.data[i];
 				   	  if (album.name == val) {
-				   	  	console.log(album.name);
+				   	  	// console.log(album.name);
 						// function getMyPhoto(album) {
 				   	  	// console.log("hihi");
 								     FB.api('/'+album.id+'/photos', function(photos){
@@ -324,7 +319,7 @@ $('#album').change(function() {
 								           // document.body.appendChild(image);
 								           // $("#photo").append("<img id="+photo.id + " src=" + image.src  + " onClick=" + "alert(" + "\"HelloWorld!\"" + ")" + ">");
 								$("#photo").append("<img id="+photo.id + " src=" + image.src  + " crossorigin=" + "\"Anonymous\"" + " class="+ "\"img\"" +" width=" + photo.width/4 +" height=" + photo.height/4 + " onClick=" + "photoClick(" + photo.id + ")" + ">");
-								console.log(image.src);
+								// console.log(image.src);
 								         }
 						       }
 						     });
@@ -346,7 +341,7 @@ jQuery(document).ready(function() {
         
     jQuery( "#slider" ).slider({
         step: 5,
-        min: 90,
+        min: 70,
         max: 200,
         value: 100,
         slide: function(event, ui) {
