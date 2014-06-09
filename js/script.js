@@ -168,7 +168,7 @@ FB.api('/me/albums?fields=id,name', function(response) {
 			console.log("=====")
 
 				if (selectIMG != undefined) {
-				s.addShape(new Shape(canMouseX-selectIMG.width/2,canMouseY-selectIMG.height/2,selectIMG.width,selectIMG.height 'rgba(245, 222, 179, .7)' , selectIMG.src));
+				s.addShape(new Shape(canMouseX-selectIMG.width/2,canMouseY-selectIMG.height/2,selectIMG.width,selectIMG.height,'rgba(245, 222, 179, .7)' , selectIMG.src));
 
 		  		// ctx.drawImage(selectIMG,canMouseX-selectIMG.width/2,canMouseY-selectIMG.height/2,selectIMG.width,selectIMG.height);//從XY軸0，0值開始畫如profileimg
 		     	}
