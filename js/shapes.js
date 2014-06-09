@@ -161,7 +161,7 @@ CanvasState.prototype.draw = function() {
       if (shape.x > this.width || shape.y > this.height ||
           shape.x + shape.w < 0 || shape.y + shape.h < 0) continue;
       // shapes[i].draw(ctx);
-          ctx.drawImage(img,0,0); //劃入img2
+          ctx.drawImage(shape.img,0,0); //劃入img
 
     }
     
