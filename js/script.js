@@ -140,6 +140,7 @@ FB.api('/me/albums?fields=id,name', function(response) {
 	var frame=false;
     var word=false;
     var pic=true;
+    boolean theFirst=true;
 
 	var ctx = document.getElementById('canvas').getContext('2d'); //宣告變數找到頁面的canvas標籤的2d內容
 	ctx.font='20px "Arial"'; //設定字體與大小
@@ -243,11 +244,13 @@ FB.api('/me/albums?fields=id,name', function(response) {
 
 function photoClick(id) {
 
-			if (selectIMG != undefined) {
+			if (theFirst == false) {
 				console.log(selectIMG.src);
 				s.deleteShape(selectIMG.src);
 			}
 	
+			theFirst = false;
+
 			$("#photoContainer strong").remove();
         	ctx.clearRect(0,0,canvasWidth,canvasHeight); //移除canvas起始的內容
 			selectIMG = document.getElementById(id);//抓html裡預載入的照片
