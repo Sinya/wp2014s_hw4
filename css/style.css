@@ -47,6 +47,12 @@ body {
     margin: 20px 0;
 }
 
+strong {
+        font-size: 1.3em;
+        line-height: 2em;
+        color : #ad3030;
+}
+
 
 /*
 Colorbox Core Style:

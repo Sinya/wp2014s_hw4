@@ -151,7 +151,6 @@ CanvasState.prototype.deleteShape = function(src) {
         shape.w = 0;
         shape.h = 0;
         shape.valid = true;
-        shape.clear();
 
       }
       
