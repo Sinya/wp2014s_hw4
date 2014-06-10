@@ -173,7 +173,8 @@ CanvasState.prototype.draw = function() {
     this.clear();
     
     // ** Add stuff you want drawn in the background all the time here **
-    
+    var x;
+    var y;
     // draw all shapes
     var l = shapes.length;
     for (var i = 0; i < l; i++) {
@@ -186,13 +187,15 @@ CanvasState.prototype.draw = function() {
       img.crossOrigin = "anonymous";
       img.src = shape.src; //圖像路徑（路徑自己設，且自己加入想要的圖層）
           ctx.drawImage(img,shape.x,shape.y,shape.w,shape.h); //劃入img
+          x = shape.x;
+          y = shape.y;
     }
 
     var inputedText = $('#inputed').val();//抓取頁面inputed ID的內容
     ctx.fillStyle = "black"; //字體顏色
     ctx.font='20px "微軟正黑體"'; //字體大小和字形
     console.log(inputedText);
-    ctx.fillText(inputedText, shape.x,shape.y); 
+    ctx.fillText(inputedText, x, y); 
     
     // draw selection
     // right now this is just a stroke along the edge of the selected Shape
