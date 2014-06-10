@@ -359,12 +359,14 @@ jQuery(document).ready(function() {
 function getMyUrl() {
 	var inputedText = $('#inputbg').val();//抓取頁面inputed ID的內容
 	img.src = inputedText;
-	s.deleteShape(selectIMG.src);
-	// s.deleteShape(img2.src);
-	s.deleteShape(img3.src);
+	if (selectIMG !== undefined) {
+		s.deleteShape(selectIMG.src);
+		// s.deleteShape(img2.src);
+		s.deleteShape(img3.src);
+	}
 	
 
-	if (selectIMG != undefined) {
+	if (selectIMG !== undefined) {
 			
 	  	    ctx.clearRect(0,0,canvasWidth,canvasHeight); //移除canvas起始的內容
 	  	    img.crossOrigin = "anonymous"; // ya
