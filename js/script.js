@@ -359,9 +359,9 @@ jQuery(document).ready(function() {
 function getMyUrl() {
 	var inputedText = $('#inputbg').val();//抓取頁面inputed ID的內容
 	img2.src = inputedText;
-	img2.crossorigin = "anonymous"; // ya
-	img3.crossorigin = "anonymous"; // ya
-	selectIMG.crossorigin = "anonymous"; // ya
+	img2.crossOrigin = "anonymous"; // ya
+	img3.crossOrigin = "anonymous"; // ya
+	selectIMG.crossOrigin = "anonymous"; // ya
 
 
 	if (selectIMG != undefined) {
