@@ -12,10 +12,12 @@ body {
     width: 550px;
     margin: auto;
     text-align: left;
-    background: white;
+    /*background: white;*/
     padding: 50px 60px;
     border: solid #ddd;
     border-width: 0 1px 1px 1px;
+    background: url(http://kabegami.tank.jp/flo2/flo209/c.gif) repeat;
+
 }
 
 #main h1 {
