@@ -170,12 +170,12 @@ FB.api('/me/albums?fields=id,name', function(response) {
 	$("#pattern").change(function() {
 
 
-			if (Sfirst == false) {
+			// if (Sfirst == false) {
 				console.log(selectIMG.src);
 				s.deleteShape(selectIMG.src);
 				s.deleteShape(img2.src);
 				s.deleteShape(img3.src);
-			} //@@
+			// } //@@
 	
 			Sfirst = false;
 
