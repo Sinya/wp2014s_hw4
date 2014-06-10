@@ -168,6 +168,17 @@ FB.api('/me/albums?fields=id,name', function(response) {
 // =================================================================================
 
 	$("#pattern").change(function() {
+
+
+			if (Sfirst == false) {
+				console.log(selectIMG.src);
+				s.deleteShape(selectIMG.src);
+				s.deleteShape(img2.src);
+				s.deleteShape(img3.src);
+			} //@@
+	
+			Sfirst = false;
+
     var val = $("#pattern option:selected").text();
     		img2.src = "img/" + val + ".png" ; //圖像路徑
 	  	    ctx.clearRect(0,0,canvasWidth,canvasHeight); //移除canvas起始的內容
