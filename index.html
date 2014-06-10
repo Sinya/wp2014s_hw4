@@ -52,12 +52,13 @@
     <div class="Content">
 
     <section id="main">
-        <h2>它動作很慢，請等它 ψ(｀∇´)ψ </h2>
+        <h2>它動作很慢，請等它和重新整理 ψ(｀∇´)ψ </h2>
         <button id="albumGET" onClick="getMyAlbum(window.response)">Get album</button>
 
 
             <label for='album'>Album :
                 <select name="album" id="album" title="album"></select><br>
+                對圖片點兩下
             </label>
                 <div name="photo" id="photo" title="photo"></div><br>
         <canvas width="540" height="540" id="canvas"></canvas>
@@ -84,12 +85,12 @@
             <!-- <input type="file" id="submitfile" onclick = "loadClick()"/> -->
         </label> 
         <br>
-        <label for="inputed">輸入文字：
+        <label for="inputed" style="color: white;" >輸入文字：
             <textarea name="inputed" maxlength="6" id="inputed" placeholder="限輸6字"></textarea><!-- 提供使用者輸入文字欄-->
         </label>
         <br>
 
-        <label for="inputbg">輸入url：
+        <label for="inputbg" style="color: white;" >輸入url：
             <textarea name="inputbg" id="inputbg" ></textarea><!-- 提供使用者輸入文字欄-->
         </label>
         <button id="urlGET" onClick="getMyUrl()">Get Picture!</button>
