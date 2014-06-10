@@ -32,17 +32,17 @@ FB.getLoginStatus(function(response) {
                         href: 'http://sinya.github.io/wp2014s_hw2/index.html',
                     }, function (response) {});
 					
-                    FB.ui({
-                        method: 'send',
-                        link: 'http://sinya.github.io/wp2014s_hw2/index.html',
-                    });
+                    // FB.ui({
+                    //     method: 'send',
+                    //     link: 'http://sinya.github.io/wp2014s_hw2/index.html',
+                    // });
 
-					FB.api('/me/likes', function (response) {
-						console.log(response)
-                        for (var i = 0; i < response.data.length; i++){
-							console.log(response.data[i].name);
-							}
-                       });
+					// FB.api('/me/likes', function (response) {
+					// 	console.log(response)
+     //                    for (var i = 0; i < response.data.length; i++){
+					// 		console.log(response.data[i].name);
+					// 		}
+     //                   });
 					
 					FB.api('/me/picture?type=normal', function(response) { // normal/large/squere 
 						var str="<img src="+ response.data.url +">";
