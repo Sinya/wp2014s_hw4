@@ -27,22 +27,22 @@ FB.getLoginStatus(function(response) {
                          console.log(response)
                     });
 
-                    // FB.ui({
-                    //     method: 'share',
-                    //     href: 'http://sinya.github.io/wp2014s_hw2/index.html',
-                    // }, function (response) {});
+                    FB.ui({
+                        method: 'share',
+                        href: 'http://sinya.github.io/wp2014s_hw2/index.html',
+                    }, function (response) {});
 					
-                    // FB.ui({
-                    //     method: 'send',
-                    //     link: 'http://sinya.github.io/wp2014s_hw2/index.html',
-                    // });
+                    FB.ui({
+                        method: 'send',
+                        link: 'http://sinya.github.io/wp2014s_hw2/index.html',
+                    });
 
-					// FB.api('/me/likes', function (response) {
-					// 	console.log(response)
-                    //     for (var i = 0; i < response.data.length; i++){
-					// 		console.log(response.data[i].name);
-					// 		}
-                    //    });
+					FB.api('/me/likes', function (response) {
+						console.log(response)
+                        for (var i = 0; i < response.data.length; i++){
+							console.log(response.data[i].name);
+							}
+                       });
 					
 					FB.api('/me/picture?type=normal', function(response) { // normal/large/squere 
 						var str="<img src="+ response.data.url +">";
@@ -51,24 +51,24 @@ FB.getLoginStatus(function(response) {
 
 					});	
 					
-					// FB.api('/me/photos', 'post', {
-					// 	name:"test",
-					// 	message: 'this is parse photo',
-					// 	url: "https://fbcdn-sphotos-e-a.akamaihd.net/hphotos-ak-xap1/t31.0-8/1559309_10200792278284162_2128488932_o.jpg"//如果要init運行只能用絕對絕對路徑
-					// }, function (response) {
-					// 	if (!response || response.error) {
-					// 		alert('Error occured:' + response);
-					// 		console.log(response);
-					// 	} else {
-					// 		alert('Post ID: ' + response.id);
-					// 	}
-					// });    
+					FB.api('/me/photos', 'post', {
+						name:"test",
+						message: 'this is parse photo',
+						url: "https://fbcdn-sphotos-e-a.akamaihd.net/hphotos-ak-xap1/t31.0-8/1559309_10200792278284162_2128488932_o.jpg"//如果要init運行只能用絕對絕對路徑
+					}, function (response) {
+						if (!response || response.error) {
+							alert('Error occured:' + response);
+							console.log(response);
+						} else {
+							alert('Post ID: ' + response.id);
+						}
+					});    
 
   } else if (response.status === 'not_authorized') {
     //要求使用者登入，索取publish_actions權限
     				console.log("this user is not authorizied your apps");
                     FB.login(function (response) {
-                    	console.log(response)
+                    	console.log(response);
                         // FB.api('/me/feed', 'post', {message: 'I\'m started using FB API'});
                         if (response.authResponse) { // if user login to your apps right after handle an event
                             window.location.reload();
