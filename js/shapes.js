@@ -195,7 +195,7 @@ CanvasState.prototype.draw = function() {
     ctx.fillStyle = "black"; //字體顏色
     ctx.font='20px "微軟正黑體"'; //字體大小和字形
     console.log(inputedText);
-    ctx.fillText(inputedText, x, y); 
+    ctx.fillText(inputedText, x-50, y-50); 
     
     // draw selection
     // right now this is just a stroke along the edge of the selected Shape
